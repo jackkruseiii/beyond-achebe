@@ -172,6 +172,7 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
   <div class="hero-stats">
     <div class="hstat"><span class="hstat-num">30+</span><span class="hstat-label">Reviews written</span></div>
     <div class="hstat"><span class="hstat-num">35</span><span class="hstat-label">Countries read</span></div>
+    <div class="hstat"><span class="hstat-num">19</span><span class="hstat-label">Still to read</span></div>
     <div class="hstat"><span class="hstat-num">54</span><span class="hstat-label">Countries total</span></div>
   </div>
 </header>
@@ -287,7 +288,38 @@ const books=[
   {country:"Mozambique",region:"southern",reviewed:true,book:"Sleepwalking Land",author:"Mia Couto",tags:["civil war","magical realism","oral tradition","Portuguese"],summary:"Mia Couto has crafted a surreal, engrossing tragic tale of the hopelessness of life during the fifteen-year civil war that consumed post-independence Mozambique. Couto focuses on pulling the reader into the psyche of those affected most by war—the ones not doing the killing—the women and the children.",quotes:["The best things in life are those that don't lie ahead."],poem:{title:"If You Want to Know Me",author:"Noémia de Sousa",clip:"If you want to know who I am,\nexamine with careful eyes\nthis piece of black wood\nthat some unknown Makonde brother\ncut and carved\nwith inspired hands—"},link:"http://kruzoo.blogspot.com/2017/02/sleepwalking-land.miacouto.mozambique.portugal.africa.html"},
   {country:"Zambia",region:"southern",reviewed:false,book:"The Old Drift",author:"Namwali Serpell",tags:["multi-generational","Zambezi","sci-fi"],summary:"",quotes:[],poem:{title:"In the Fist of Your Hand",author:"Gwendoline Konie",clip:"You hold the seed of nations\nin the fist of your hand,\nplant it gently, water it\nwith the tears of the living—"},link:""},
   {country:"Malawi",region:"southern",reviewed:true,book:"The Jive Talker",author:"Samson Kambalu",tags:["coming of age","Banda era","Britain","humor"],summary:"Loved It Because Kambalu is a gifted and funny writer who presents his life (and that of his father—the Jive Talker) as an open book. Technically, this isn't fiction but this Malawian Banda-era coming-of-age tale sure reads like it. The book is at its best when the author is in the jive talking zone—whether that be on former President Banda, American Rock n Roll, or bush wisdom regarding safari animals.",quotes:[],poem:{title:"A Love Poem for my Country",author:"Frank Chipasula",clip:"I love you, my country,\nnot the way I love a woman,\nbut the way a son loves a difficult mother\nwho nurses him with bitter milk—"},link:"http://kruzoo.blogspot.com/2016/07/the-jive-talker-or-how-to-get-british.html"},
-  {country:"Madagascar",region:"southern",reviewed:true,book:"Beyond the Rice Fields",author:"Naivo",tags:["first novel","colonialism","slavery","Merina","Christianity"],summary:"It's hard to express how much I looked forward to reading this book. I spent three years living and working in Madagascar beginning in late 2013. Prior to my arrival, I had scoured the libraries and internet for anything I could find in English on Madagascar. Then near the end of 2015 I came across a translator who had received a PEN grant to translate it — and it did not disappoint.",quotes:[],poem:{title:"9",author:"Jean-Joseph Rabearivelo",clip:"She who is dead\nbut dances still\nin the dark of memory—\nthe moon turns her face away—"},link:"http://kruzoo.blogspot.com/2018/01/read-beyond-rice-fields-to.html"}
+  {country:"Madagascar",region:"southern",reviewed:true,book:"Beyond the Rice Fields",author:"Naivo",tags:["first novel","colonialism","slavery","Merina","Christianity"],summary:"It's hard to express how much I looked forward to reading this book. I spent three years living and working in Madagascar beginning in late 2013. Prior to my arrival, I had scoured the libraries and internet for anything I could find in English on Madagascar. Then near the end of 2015 I came across a translator who had received a PEN grant to translate it — and it did not disappoint.",quotes:[],poem:{title:"9",author:"Jean-Joseph Rabearivelo",clip:"She who is dead\nbut dances still\nin the dark of memory—\nthe moon turns her face away—"},link:"http://kruzoo.blogspot.com/2018/01/read-beyond-rice-fields-to.html"},
+
+  // ── FUTURE READS ──
+  // Maghreb
+  {country:"Egypt",region:"maghreb",reviewed:false,book:"The Cairo Trilogy",author:"Naguib Mahfouz",tags:["Cairo","colonialism","family","Nobel Prize"],summary:"",quotes:[],poem:null,link:""},
+
+  // West Africa
+  {country:"Angola",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Benin",region:"west",reviewed:false,book:"The Viceroy of Ouidah",author:"Bruce Chatwin",tags:["slave trade","Dahomey"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Gambia",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Guinea",region:"west",reviewed:false,book:"The Dark Child",author:"Camara Laye",tags:["coming of age","Malinké","colonialism"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Guinea-Bissau",region:"west",reviewed:false,book:"The Ultimate Tragedy",author:"Abdulai Sila",tags:["colonialism","Portuguese Africa"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Niger",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"São Tomé and Príncipe",region:"west",reviewed:false,book:"Equator",author:"Miguel Sousa Tavares",tags:["Lusophone","island","colonialism"],summary:"",quotes:[],poem:null,link:""},
+
+  // East Africa
+  {country:"Seychelles",region:"east",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Mauritius",region:"east",reviewed:false,book:"The Restraint of Beasts",author:"Magnus Mills",tags:["island","Indian Ocean","diaspora"],summary:"",quotes:[],poem:null,link:""},
+
+  // Horn of Africa
+  {country:"South Sudan",region:"horn",reviewed:false,book:"There Is a Country",author:"Various",tags:["independence","civil war","new nation"],summary:"",quotes:[],poem:null,link:""},
+
+  // Central Africa
+  {country:"Central African Republic",region:"central",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Chad",region:"central",reviewed:false,book:"Told by Starlight in Chad",author:"Joseph Brahim Seid",tags:["Sahel","colonialism","French"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Gabon",region:"central",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+
+  // Southern Africa
+  {country:"Botswana",region:"southern",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:{title:"Love That",author:"Baralong Seboni",clip:"Love that comes\nlike the first rains\non baked earth—\ninstant, necessary—"},link:""},
+  {country:"Eswatini",region:"southern",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Lesotho",region:"southern",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Namibia",region:"southern",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""}
 ];
 
 const regionNames={maghreb:'Maghreb',west:'West Africa',east:'East Africa',horn:'Horn of Africa',central:'Central Africa',southern:'Southern Africa'};
@@ -301,7 +333,7 @@ function renderGrid(region){
     const badge=b.reviewed?'<span class="ccard-badge badge-reviewed">Reviewed</span>':b.poem?'<span class="ccard-badge badge-poem">Poem</span>':'<span class="ccard-badge badge-future">Future</span>';
     let poemBlock='';
     if(b.poem){poemBlock=`<div class="ccard-divider"></div><div class="ccard-poem-label">Poem</div><div class="ccard-poem-title">${b.poem.title}</div><div class="ccard-poem-author">${b.poem.author}</div><div class="ccard-poem-clip">${b.poem.clip}</div>`;}
-    const bookLine=b.book!=='Future read'?`<div class="ccard-book">${b.book}</div><div class="ccard-author">${b.author}</div>`:`<div class="ccard-author" style="font-style:italic;color:var(--ink-light)">Future read</div>`;
+    const bookLine=b.book&&b.book!=='Future read'?`<div class="ccard-book">${b.book}</div><div class="ccard-author">${b.author}</div>`:`<div class="ccard-author" style="font-style:italic;color:var(--ink-light)">Not yet read</div>`;
     const key=b.country.replace(/'/g,"\\'").replace(/[()]/g,'_');
     return `<div class="ccard ${bc}" onclick="showDetail('${key}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showDetail('${key}')"><div class="ccard-top"><span class="ccard-country">${b.country}</span>${badge}</div>${bookLine}${poemBlock}</div>`;
   }).join('');
@@ -311,8 +343,9 @@ function showDetail(key){
   const b=books.find(x=>x.country.replace(/'/g,"\\'").replace(/[()]/g,'_')===key||x.country===key);
   if(!b)return;
   const panel=document.getElementById('detail-panel');
-  let html=`<div class="detail-top"><div><div class="detail-eyebrow">${regionNames[b.region]} · ${b.country}</div><div class="detail-title">${b.book}</div><div class="detail-author">${b.author||''}</div></div><button class="detail-close" onclick="closeDetail()">✕ Close</button></div>`;
+  let html=`<div class="detail-top"><div><div class="detail-eyebrow">${regionNames[b.region]} · ${b.country}</div><div class="detail-title">${b.book&&b.book!=='Future read'?b.book:'Not yet read'}</div><div class="detail-author">${b.author||''}</div></div><button class="detail-close" onclick="closeDetail()">✕ Close</button></div>`;
   if(b.tags.length)html+=`<div class="detail-tags">${b.tags.map(t=>`<span class="detail-tag">${t}</span>`).join('')}</div>`;
+  if(!b.reviewed&&!b.summary)html+=`<div style="font-family:var(--serif);font-style:italic;color:var(--ink-light);font-size:0.95rem;padding:0.5rem 0">On the reading list — review coming.</div>`;
   if(b.summary)html+=`<div class="detail-section-label">Review</div><div class="detail-review">${b.summary}</div>`;
   if(b.quotes&&b.quotes.length){html+=`<div class="detail-section-label">Key quotes</div>`;b.quotes.forEach(q=>{html+=`<div class="detail-quote">"${q}"</div>`;});}
   if(b.poem)html+=`<div class="detail-section-label">Poem</div><div class="detail-poem-block"><div class="detail-poem-title">${b.poem.title}</div><div class="detail-poem-byline">${b.poem.author}</div><div class="detail-poem-text">${b.poem.clip}</div></div>`;
