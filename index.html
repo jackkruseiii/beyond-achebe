@@ -99,6 +99,28 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
 .detail-link:hover{text-decoration:underline}
 .detail-link::after{content:' ↗';font-size:11px}
 
+/* BOOK BLOCKS in detail panel */
+.detail-books{display:flex;flex-direction:column;gap:10px;margin-top:0.75rem}
+.detail-book-block{padding:1rem 1.15rem;border-radius:6px;background:var(--sand);border:0.5px solid var(--border-lt)}
+.detail-book-title{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:2px;font-style:italic}
+.detail-book-author{font-size:11px;color:var(--ink-light);letter-spacing:0.02em;margin-bottom:0.65rem}
+.detail-book-review{font-family:var(--serif);font-size:0.95rem;line-height:1.8;color:var(--ink-mid);margin-bottom:0.65rem}
+.detail-book-quotes{margin-bottom:0.65rem}
+.detail-book-quote{font-family:var(--serif);font-size:0.9rem;line-height:1.65;color:var(--ink-light);font-style:italic;padding-left:0.85rem;border-left:1.5px solid var(--border);margin-bottom:5px}
+.detail-book-link{font-size:12px;color:var(--blue);text-decoration:none}
+.detail-book-link:hover{text-decoration:underline}
+.detail-book-link::after{content:' ↗';font-size:10px}
+
+/* POEM CODA — deliberately atmospheric, not structured like book blocks */
+.detail-poem-coda{margin-top:1.5rem;padding-top:1.25rem;border-top:0.5px solid var(--border-lt)}
+.detail-poem-coda-label{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.6rem}
+.detail-poem-coda-title{font-family:var(--serif);font-size:0.95rem;font-weight:500;color:var(--ink-mid);margin-bottom:1px}
+.detail-poem-coda-author{font-size:10px;color:var(--ink-light);margin-bottom:0.65rem;font-style:italic}
+.detail-poem-coda-text{font-family:var(--serif);font-size:1rem;line-height:2;color:var(--ink-light);white-space:pre-wrap;font-style:italic;letter-spacing:0.01em}
+
+/* COUNT BADGE on cards */
+.ccard-count{font-size:9px;padding:1px 6px;border-radius:7px;background:var(--sand-dark);color:var(--ink-light);border:0.5px solid var(--border);margin-left:5px;vertical-align:middle;white-space:nowrap}
+
 /* GRID */
 .country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:2rem}
 .ccard{background:white;border:0.5px solid var(--border-lt);border-radius:6px;padding:1rem 1.05rem;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s;display:flex;flex-direction:column}
@@ -256,11 +278,29 @@ const books=[
   {country:"Algeria",region:"maghreb",reviewed:true,book:"What the Day Owes the Night",author:"Yasmina Khadra",tags:["colonialism","love","pieds-noirs","independence"],summary:"This book is a perfect example of why reading fiction is important. Reading fiction like this forces the reader to internalize and grapple with historical events in a way that a straightforward history never could. In this case, by personalizing something like the Algerian independence struggle, the reader must reevaluate the dry numbers, facts and statistics littering the historical record and connect them to the actual people and struggles behind them.",quotes:["Have you ever dared, Younes, even once in your life?","If a woman loves you, no star is beyond your grasp, no god can touch you.","Only love can make good the misfortunes and evils of the world."],poem:{title:"Kassaman (We Pledge)",author:"Moufdi Zakaria",clip:"We pledge by the lightning that destroys,\nBy the streams of generous blood being shed,\nBy the bright flags that wave,\nO Algeria, live and bear witness—"},link:"https://fuuo.blogspot.com/2018/04/love.fiction.algerianwarofindependence.html"},
   {country:"Libya",region:"maghreb",reviewed:true,book:"Confines of the Shadow",author:"Alessandro Spina",tags:["colonialism","Italian Libya","Benghazi","occupation"],summary:"I came across this book through a post on the Arabist's excellent blog. The author of the post—Ursula Lindsey—wrote such a great opening hook: 'Alessandro Spina was a Syrian Maronite who grew up in Ben Ghazi, was educated and wrote in Italian, and over the course of 40 years penned an extraordinary cycle of novels about the bloody establishment, brief flourishing and troubled aftermath of the Italian colony in Libya.' So a novel by a Catholic Syrian that grew up in Libya, was educated in Italy and wrote in Italian, and his work has only recently been translated into English...awesome.",quotes:["To be a foreigner is a magical condition: this land will never belong to me, no matter how many cannons and rifles I bring here.","Generosity cannot overcome our fundamental problem: is our presence here legitimate?","The native is a living shadow."],poem:{title:"East of Carthage: An Idyll",author:"Khaled Mattawa",clip:"I have been away so long\nI no longer know what I miss.\nThe language, the bread,\nthe smell of dust after rain—"},link:"http://fuuo.blogspot.com/2015/11/libya.spina.naffis.sahely.benghazi.italy.faoreadinglist.tripoli.html"},
   {country:"Morocco",region:"maghreb",reviewed:true,book:"Leaving Tangier",author:"Tahar Ben Jelloun",tags:["immigration","Europe","diaspora","corruption","identity"],summary:"Loved it because this was a sad, tragic, beautifully written tale about loneliness, despair, hope and home. The strength of this novel is that it doesn't hold back in its indictment of the Moroccan government's societal failures but also doesn't hold living in Europe as a golden solution to the problems of most Moroccans.",quotes:["Exile revealed the true dimensions of calamity.","You know, from Morocco you can see Spain, but it doesn't work like that in the opposite direction.","We are all called upon to leave our homes...because our country is often not rich enough, or loving enough, or generous enough to keep us at home."],poem:{title:"Elegy for Love",author:"Hassan El Ouazzani",clip:"I write you letters in the language\nof longing, which has no alphabet,\nonly the weight of what remains\nwhen the beloved has gone—"},link:"http://kruzoo.blogspot.com/2016/09/leavingtangier.africareadinglist.jelloun.morocco.mo.fao.html"},
-  {country:"Tunisia",region:"maghreb",reviewed:true,book:"Lion Mountain",author:"Mustapha Tlili",tags:["independence","modernity","sacred geography","Jasmine Revolution"],summary:"Lion Mountain is a novel of collisions — physical and spiritual, emotional and political, urban and rural, French and Tunisian, dictators and villagers, mother and son. Tlili paints a secluded village sheltered under the shoulder of Lion Mountain. The arrival of the outside world sets the novel on a tragic arc as the forces of modernity smother the spiritual life from Horia and her household.",quotes:["You set out in search of wisdom and knowledge; out of sacred duty you have become an exile. Are we not all exiles upon this earth?","Time passes, pain is forgotten, horror is forgotten."],poem:null,link:"https://fuuo.blogspot.com/2021/02/tunisiajasmine.lionmountain.html"},
-  {country:"Mauritania",region:"maghreb",reviewed:true,book:"The Desert and the Drum",author:"Mbarek Ould Beyrouk",tags:["desert","Sahara","nomad","tradition","colonialism"],summary:"'From the moment they arrived, the strangers stole something essential from us, without us feeling we had the right to protest.' This comment by the young Bedouin narrator Rayhana encapsulates the modern-day struggle that Beyrouk seeks to describe. For Rayhana, the strangers' arrival severs her from the world on every level, forcing her to consider what it means to exist as an individual—a concept completely foreign to most Bedouin.",quotes:["So what? Do you think I'm ashamed of that? Your grimy faces, your vacant eyes, your directionless lives...","I was clearly from elsewhere; from the lands that were white with sand and black with fury."],poem:null,link:"https://www.beyondachebe.com/2021/02/blog-post.html"},
-  {country:"Cameroon",region:"west",reviewed:true,book:"Behold the Dreamers / How Beautiful We Were",author:"Imbolo Mbue",tags:["immigration","America","oil","capitalism","activism"],summary:"The novel's power comes in Mbue's ability to capture both the strengths and the hollowness of the promise of America. In How Beautiful We Were, Mbue is restrained as she refuses to offer a hopeful note about the plight of this fictional country—instead she offers a cold and despairing eulogy.",quotes:["The problem with America is that it makes you dream.","Someday, when you're old, you'll see the ones who came to kill us and the ones who'll run to save us are the same."],poem:{title:"A Poem of Villeneuve St. Georges",author:"Mbella Sonne Dipoko",clip:"Black is the colour of my love's hair\nAnd her body is warm like the tropics\nShe dances with a blue flame\nAnd laughs without shame—"},link:"https://www.beyondachebe.com/2021/11/behold-dreamers-by-imbolo-mbue-cameroon.html"},
-  {country:"Ghana",region:"west",reviewed:true,book:"Homegoing / Transcendent Kingdom",author:"Yaa Gyasi",tags:["slave trade","diaspora","addiction","identity","science vs faith"],summary:"As I listened to Yaa Gyasi's 'Homegoing' I began to see the very clear narrative line that she was drawing between black lives today and an origin story across the Atlantic that began centuries ago. This masterpiece of historical fiction follows the lives of two separated half-sisters and their six generations of descendants beginning in the mid-1700s in West Africa.",quotes:["We believe the one who has power. He is the one who gets to write the story.","Am looking for new names for old feelings. My soul is still my soul, even if I rarely call it that."],poem:{title:"Kperterkple Serenade (III)",author:"Atukwei Okai",clip:"america\nyou are a funny girl…\neverybody dreams of kissing you"},link:"http://fuuo.blogspot.com/2019/03/kruseskeys.homegoing.oprah.gyasi.ghana.html"},
-  {country:"Nigeria",region:"west",reviewed:true,book:"I Do Not Come to You by Chance / Arrow of God / Americanah",author:"Nwaubani / Achebe / Adichie",tags:["419 fraud","colonialism","identity","Igbo","diaspora"],summary:"Read It Because you'll finally get to know that Nigerian Prince who has been emailing you! With an eye for humor and for heart, Nwaubani crafts a classic tragedy that follows the rise of Kingsley as he ascends a 419 crime syndicate. The single aspect that best demonstrates the author's deft writing hands is her ability to humanize Kingsley as he becomes more and more adept at swindling gullible mugus.",quotes:["The glass cup dropped from my hand and colonized a large portion of the marble floor.","No matter what the media proclaimed, we were not villains, and the good people of Eastern Nigeria knew it."],poem:{title:"In the Small Hours",author:"Wole Soyinka",clip:"In the small hours of the night\nI hear the dead moving,\ntheir footfalls soft as conscience\non the corridors of sleep—"},link:"http://kruzoo.blogspot.com/2016/01/419.ng.advancefee.nigerianprince.nwaubani.donotcometoyoubychance.html"},
+  {country:"Tunisia",region:"maghreb",reviewed:true,book:"Lion Mountain",author:"Mustapha Tlili",tags:["independence","modernity","sacred geography","Jasmine Revolution"],summary:"Lion Mountain is a novel of collisions — physical and spiritual, emotional and political, urban and rural, French and Tunisian, dictators and villagers, mother and son. Tlili paints a secluded village modeled on Feriana, the home of his youth — an ancient place lost amidst the desert steppes, sheltered always under the shoulder of Lion Mountain. The diviner of this sacred geography is the equally ancient Horia, a widow and fierce defender who bears all of life's adversity with a stoicism that is seemingly unbreakable. The arrival of the outside world sets the novel on a tragic arc as the forces of modernity smother the spiritual life from Horia and her household. In Horia's refusal to let her sacred geography be ripped apart, we see echoes of the defiance that will become Tunisia's Jasmine Revolution decades later.",quotes:["A geography more than physical or human: sacred...In this mystical topography, landmarks determining the rights of each and every individual were perfectly clear.","Time passes, pain is forgotten, horror is forgotten. Only by remaining silent in the face of horror may we escape it.","You set out in search of wisdom and knowledge; out of sacred duty you have become an exile. Are we not all exiles upon this earth? Is not dust our natural abode?","All because of that extraordinary ability with which the Lord has endowed him: the ability to forget. To forget. To forgive."],poem:null,link:"https://fuuo.blogspot.com/2021/02/tunisiajasmine.lionmountain.html"},
+  {country:"Mauritania",region:"maghreb",reviewed:true,book:"The Desert and the Drum",author:"Mbarek Ould Beyrouk",tags:["desert","Sahara","nomad","tradition","colonialism","identity"],summary:"'From the moment they arrived, the strangers stole something essential from us, without us feeling we had the right to protest.' This comment by the young Bedouin narrator Rayhana encapsulates the modern-day struggle that Beyrouk seeks to describe. In Rayhana's case, these strangers were a mixture of fellow countrymen and foreign investors looking for minerals. The theft in question is not one of gold or ore but of proximity and privacy. For Rayhana, the strangers' arrival severs that separation on every level forcing her to leave her tribe, and most importantly, to consider what it means to exist as an individual — a concept completely foreign to most Bedouin. The drum is her tribe's ancient token, guarded and carried for centuries and imbued with mystic power. For Rayhana, however, the drum represents everything taken from her, so she absconds with it setting off a tragic chain of events. Beyrouk is a gifted author and writes beautifully as he observes the stark difference between modern 'civilization' and Bedouin life.",quotes:["From the moment they arrived, the strangers stole something essential from us, without us feeling we had the right to protest.","So what? Do you think I'm ashamed of that? Do you think I'd rather have what you have? Your grimy faces, your vacant eyes, your directionless lives, the prisons you live in, the dead things you use for transport? Do you think you're better than me?","I was clearly from elsewhere; from the lands that were white with sand and black with fury.","Is there anyone more ignorant than someone who can't find their way?"],poem:null,link:"https://fuuo.blogspot.com/2026/06/the-desert-and-drum-by-mbarek-ould.html"},
+  {country:"Cameroon",region:"west",reviewed:true,tags:["colonialism","slavery","immigration","America","oil","identity"],
+   books:[
+     {title:"Houseboy",author:"Ferdinand Oyono",summary:"Oyono crafts a beautiful, tragic and damning tale about being a 'black Frenchman' in colonial Cameroon. The question of identity is at the center of this tale of a houseboy named Toundi with hopes of assimilation. With his near-last dying words being 'What are we blackmen who are called French?' one gets the sense it's not going to end well for the young man.",quotes:["What are we blackmen who are called French?","The dog of the King is the King of dogs."],link:"http://kruzoo.blogspot.com/2016/09/houseboy-loved-it-because-oyono-crafts.html"},
+     {title:"Season of the Shadow",author:"Léonora Miano",summary:"What were the beginnings of slavery like for those villagers who were first kidnapped? Miano transports the reader to those early terrifying days and likens the horror of slavery to a shadow of darkness whose advance can't be stopped nor hidden from. A village awakens to its huts ablaze and 12 men vanished — evil unchecked growing from the slimmest of shadows to an all-encompassing darkness.",quotes:["Evil unchecked can quickly grow from the slimmest of shadows to an all-encompassing darkness."],link:"https://fuuo.blogspot.com/2019/07/kruses-keys-read-season-of-shadow-to.html"},
+     {title:"Behold the Dreamers / How Beautiful We Were",author:"Imbolo Mbue",summary:"The novel's power comes in Mbue's ability to capture both the strengths and the hollowness of the promise of America. In How Beautiful We Were, Mbue is restrained as she refuses to offer a hopeful note about the plight of this fictional country—instead she offers a cold and despairing eulogy.",quotes:["The problem with America is that it makes you dream.","Someday, when you're old, you'll see the ones who came to kill us and the ones who'll run to save us are the same."],link:"https://www.beyondachebe.com/2021/11/behold-dreamers-by-imbolo-mbue-cameroon.html"}
+   ],
+   poem:{title:"A Poem of Villeneuve St. Georges",author:"Mbella Sonne Dipoko",clip:"Black is the colour of my love's hair\nAnd her body is warm like the tropics\nShe dances with a blue flame\nAnd laughs without shame—"}},
+  {country:"Ghana",region:"west",reviewed:true,tags:["slave trade","diaspora","addiction","family","identity","immigration","science vs faith"],
+   books:[
+     {title:"Ghana Must Go",author:"Taiye Selasi",summary:"Read It Because this is not a novel about Africa, or Ghana, or Nigeria or immigrants only — this is one of the classic novels about family, identity, loss, and forgiveness that follows you around in your idle thoughts long after you are finished. Selasi's mastery is most evident as she captures the sights, sounds and people of Ghana and Nigeria.",quotes:["The boy was possessed of that brand of indomitable cheerfulness only seen in children living in poverty near the equator: an instinct to laugh at the world as they found it, to find things to laugh at, to know where to look."],link:"http://kruzoo.blogspot.com/2016/03/ghana-must-go-read-it-because-this-is.html"},
+     {title:"Homegoing",author:"Yaa Gyasi",summary:"As I listened to Yaa Gyasi's 'Homegoing' I began to see the very clear narrative line that she was drawing between black lives today and an origin story across the Atlantic that began centuries ago. This masterpiece of historical fiction follows the lives of two separated half-sisters and their six generations of descendants beginning in the mid-1700s in West Africa.",quotes:["We believe the one who has power. He is the one who gets to write the story."],link:"http://fuuo.blogspot.com/2019/03/kruseskeys.homegoing.oprah.gyasi.ghana.html"},
+     {title:"Transcendent Kingdom",author:"Yaa Gyasi",summary:"The author chooses to focus on the life of one brilliant young scientist and her life as a daughter of Ghanaian immigrants who struggles with her identity as a black woman — science and faith pulling in opposite directions.",quotes:["Am looking for new names for old feelings. My soul is still my soul, even if I rarely call it that."],link:"http://fuuo.blogspot.com/2019/03/kruseskeys.homegoing.oprah.gyasi.ghana.html"}
+   ],
+   poem:{title:"Kperterkple Serenade (III)",author:"Atukwei Okai",clip:"america\nyou are a funny girl…\neverybody dreams of kissing you"}},
+  {country:"Nigeria",region:"west",reviewed:true,tags:["419 fraud","colonialism","identity","Igbo","diaspora"],
+   books:[
+     {title:"I Do Not Come to You by Chance",author:"Adaobi Tricia Nwaubani",summary:"Read It Because you'll finally get to know that Nigerian Prince who has been emailing you! With an eye for humor and for heart, Nwaubani crafts a classic tragedy that follows the rise of Kingsley as he ascends a 419 crime syndicate. The single aspect that best demonstrates the author's deft writing hands is her ability to humanize Kingsley as he becomes more and more adept at swindling gullible mugus.",quotes:["The glass cup dropped from my hand and colonized a large portion of the marble floor.","No matter what the media proclaimed, we were not villains, and the good people of Eastern Nigeria knew it."],link:"http://kruzoo.blogspot.com/2016/01/419.ng.advancefee.nigerianprince.nwaubani.donotcometoyoubychance.html"},
+     {title:"Arrow of God",author:"Chinua Achebe",summary:"Achebe's deepest excavation of colonial disruption to traditional Igbo authority — the story of Ezeulu, chief priest of Ulu, whose resistance to British colonial power leads to catastrophic consequences for his people and his god.",quotes:["We believe the one who has power. He is the one who gets to write the story. So when you study history, you must ask yourself, Whose story am I missing?"],link:"http://kruzoo.blogspot.com/2016/01/419.ng.advancefee.nigerianprince.nwaubani.donotcometoyoubychance.html"},
+     {title:"Americanah",author:"Chimamanda Ngozi Adichie",summary:"Adichie's sweeping novel of race, identity, and return maps the experience of a Nigerian woman navigating race in America and Britain before coming home to Lagos.",quotes:[],link:"http://kruzoo.blogspot.com/2016/01/419.ng.advancefee.nigerianprince.nwaubani.donotcometoyoubychance.html"}
+   ],
+   poem:{title:"In the Small Hours",author:"Wole Soyinka",clip:"In the small hours of the night\nI hear the dead moving,\ntheir footfalls soft as conscience\non the corridors of sleep—"}},
   {country:"Senegal",region:"west",reviewed:true,book:"So Long a Letter",author:"Mariama Bâ",tags:["women","polygamy","friendship","epistolary","feminism"],summary:"Read It Because you get to peer into the birth of feminism for a Muslim woman in post-independence Senegal. Bâ won me over with her tender, thoughtful introspective look at the life of a cuckolded, then sister-wifed, then widowed, then independent and finally (maybe) free woman. I found myself rereading paragraphs as she bestowed poetry upon the mundane-seeming tasks of a housewife.",quotes:["The domestic work they carry out, and which is not paid for in hard cash, is essential to the home.","The mirasse commanded by the Koran requires that a dead person be stripped of his most intimate secrets; thus is exposed to others what was carefully concealed."],poem:{title:"Black Woman",author:"Léopold Sédar Senghor",clip:"Naked woman, black woman\nClothed with your colour which is life,\nwith your form which is beauty!\nI grew up in your shadow—"},link:"http://kruzoo.blogspot.com/2016/08/senegal.mariamaba.solongaletter.dakar.readinglist.html"},
   {country:"Togo",region:"west",reviewed:true,book:"An African in Greenland",author:"Tété-Michel Kpomassie",tags:["adventure","Greenland","Inuit","travel","identity"],summary:"Loved it because it was unlike anything I've ever read. This is the fantastical post-independence autobiographical tale of a young Togolese boy that leaves his 25 siblings on a whim and starts a 12-year journey from his native country to the chilly northern reaches of Greenland. It all started after he saw a book on Greenland in a missionary bookstore in his village.",quotes:[],poem:null,link:"http://kruzoo.blogspot.com/2016/11/kpomassie.readinglist.an-african-in-greenland-loved-it.html"},
   {country:"Côte d'Ivoire",region:"west",reviewed:true,book:"Allah is Not Obliged",author:"Ahmadou Kourouma",tags:["child soldiers","civil war","West Africa"],summary:"This novel could just as easily have been filed under Sierra Leone or Liberia but I stuck it here since the author is Ivorian. And if we want to get all philosophical about things, most of these books could be filed under multiple countries since the borders are really an artificial colonial construct.",quotes:[],poem:null,link:"http://kruzoo.blogspot.com/2016/11/allahisnotobliged.kourouma.faoreadinglist.html"},
@@ -290,15 +330,16 @@ const books=[
   {country:"Malawi",region:"southern",reviewed:true,book:"The Jive Talker",author:"Samson Kambalu",tags:["coming of age","Banda era","Britain","humor"],summary:"Loved It Because Kambalu is a gifted and funny writer who presents his life (and that of his father—the Jive Talker) as an open book. Technically, this isn't fiction but this Malawian Banda-era coming-of-age tale sure reads like it. The book is at its best when the author is in the jive talking zone—whether that be on former President Banda, American Rock n Roll, or bush wisdom regarding safari animals.",quotes:[],poem:{title:"A Love Poem for my Country",author:"Frank Chipasula",clip:"I love you, my country,\nnot the way I love a woman,\nbut the way a son loves a difficult mother\nwho nurses him with bitter milk—"},link:"http://kruzoo.blogspot.com/2016/07/the-jive-talker-or-how-to-get-british.html"},
   {country:"Madagascar",region:"southern",reviewed:true,book:"Beyond the Rice Fields",author:"Naivo",tags:["first novel","colonialism","slavery","Merina","Christianity"],summary:"It's hard to express how much I looked forward to reading this book. I spent three years living and working in Madagascar beginning in late 2013. Prior to my arrival, I had scoured the libraries and internet for anything I could find in English on Madagascar. Then near the end of 2015 I came across a translator who had received a PEN grant to translate it — and it did not disappoint.",quotes:[],poem:{title:"9",author:"Jean-Joseph Rabearivelo",clip:"She who is dead\nbut dances still\nin the dark of memory—\nthe moon turns her face away—"},link:"http://kruzoo.blogspot.com/2018/01/read-beyond-rice-fields-to.html"},
 
+  {country:"Egypt",region:"maghreb",reviewed:false,book:"The Cairo Trilogy",author:"Naguib Mahfouz",tags:["Cairo","colonialism","family saga","Nobel Prize","modernity"],summary:"Magnificent story about colonial Egypt and family — read before the project started so no formal review.",quotes:[],poem:null,link:""},
+
   // ── FUTURE READS ──
   // Maghreb
-  {country:"Egypt",region:"maghreb",reviewed:false,book:"The Cairo Trilogy",author:"Naguib Mahfouz",tags:["Cairo","colonialism","family","Nobel Prize"],summary:"",quotes:[],poem:null,link:""},
 
   // West Africa
-  {country:"Angola",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Angola",region:"west",reviewed:false,book:"Luuanda / Transparent City",author:"Tania Macedo / Ondjaki",tags:["Lusophone","civil war","Luanda"],summary:"",quotes:[],poem:null,link:""},
   {country:"Benin",region:"west",reviewed:false,book:"The Viceroy of Ouidah",author:"Bruce Chatwin",tags:["slave trade","Dahomey"],summary:"",quotes:[],poem:null,link:""},
   {country:"Gambia",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
-  {country:"Guinea",region:"west",reviewed:false,book:"The Dark Child",author:"Camara Laye",tags:["coming of age","Malinké","colonialism"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Guinea",region:"west",reviewed:false,book:"My Heart Will Cross This Ocean",author:"Kadiatou Diallo",tags:["family","diaspora","tragedy"],summary:"",quotes:[],poem:null,link:""},
   {country:"Guinea-Bissau",region:"west",reviewed:false,book:"The Ultimate Tragedy",author:"Abdulai Sila",tags:["colonialism","Portuguese Africa"],summary:"",quotes:[],poem:null,link:""},
   {country:"Niger",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
   {country:"São Tomé and Príncipe",region:"west",reviewed:false,book:"Equator",author:"Miguel Sousa Tavares",tags:["Lusophone","island","colonialism"],summary:"",quotes:[],poem:null,link:""},
@@ -324,6 +365,12 @@ const books=[
 
 const regionNames={maghreb:'Maghreb',west:'West Africa',east:'East Africa',horn:'Horn of Africa',central:'Central Africa',southern:'Southern Africa'};
 
+// Helper: get display book title(s) and author(s) from either flat or array structure
+function getCardBook(b){
+  if(b.books) return {title:b.books.map(x=>x.title).join(' · '), author:b.books.map(x=>x.author.split(' ').pop()).join(' · '), count:b.books.length};
+  return {title:b.book||'', author:b.author||'', count:1};
+}
+
 function renderGrid(region){
   const grid=document.getElementById('country-grid');
   const filtered=region==='all'?books:books.filter(b=>b.region===region);
@@ -331,11 +378,21 @@ function renderGrid(region){
     const hasContent=b.reviewed||b.poem;
     const bc=hasContent?`has-content r-${b.region}`:'';
     const badge=b.reviewed?'<span class="ccard-badge badge-reviewed">Reviewed</span>':b.poem?'<span class="ccard-badge badge-poem">Poem</span>':'<span class="ccard-badge badge-future">Future</span>';
+    const {title,author,count}=getCardBook(b);
+    const countBadge=count>1?`<span class="ccard-count">${count} books</span>`:'';
+    let bookLine='';
+    if(title&&title!=='Future read'){
+      bookLine=`<div class="ccard-book">${title}</div><div class="ccard-author">${author}</div>`;
+    } else {
+      bookLine=`<div class="ccard-author" style="font-style:italic;color:var(--ink-light)">Not yet read</div>`;
+    }
     let poemBlock='';
     if(b.poem){poemBlock=`<div class="ccard-divider"></div><div class="ccard-poem-label">Poem</div><div class="ccard-poem-title">${b.poem.title}</div><div class="ccard-poem-author">${b.poem.author}</div><div class="ccard-poem-clip">${b.poem.clip}</div>`;}
-    const bookLine=b.book&&b.book!=='Future read'?`<div class="ccard-book">${b.book}</div><div class="ccard-author">${b.author}</div>`:`<div class="ccard-author" style="font-style:italic;color:var(--ink-light)">Not yet read</div>`;
     const key=b.country.replace(/'/g,"\\'").replace(/[()]/g,'_');
-    return `<div class="ccard ${bc}" onclick="showDetail('${key}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showDetail('${key}')"><div class="ccard-top"><span class="ccard-country">${b.country}</span>${badge}</div>${bookLine}${poemBlock}</div>`;
+    return `<div class="ccard ${bc}" onclick="showDetail('${key}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')showDetail('${key}')">
+      <div class="ccard-top"><span class="ccard-country">${b.country}${countBadge}</span>${badge}</div>
+      ${bookLine}${poemBlock}
+    </div>`;
   }).join('');
 }
 
@@ -343,13 +400,63 @@ function showDetail(key){
   const b=books.find(x=>x.country.replace(/'/g,"\\'").replace(/[()]/g,'_')===key||x.country===key);
   if(!b)return;
   const panel=document.getElementById('detail-panel');
-  let html=`<div class="detail-top"><div><div class="detail-eyebrow">${regionNames[b.region]} · ${b.country}</div><div class="detail-title">${b.book&&b.book!=='Future read'?b.book:'Not yet read'}</div><div class="detail-author">${b.author||''}</div></div><button class="detail-close" onclick="closeDetail()">✕ Close</button></div>`;
-  if(b.tags.length)html+=`<div class="detail-tags">${b.tags.map(t=>`<span class="detail-tag">${t}</span>`).join('')}</div>`;
-  if(!b.reviewed&&!b.summary)html+=`<div style="font-family:var(--serif);font-style:italic;color:var(--ink-light);font-size:0.95rem;padding:0.5rem 0">On the reading list — review coming.</div>`;
-  if(b.summary)html+=`<div class="detail-section-label">Review</div><div class="detail-review">${b.summary}</div>`;
-  if(b.quotes&&b.quotes.length){html+=`<div class="detail-section-label">Key quotes</div>`;b.quotes.forEach(q=>{html+=`<div class="detail-quote">"${q}"</div>`;});}
-  if(b.poem)html+=`<div class="detail-section-label">Poem</div><div class="detail-poem-block"><div class="detail-poem-title">${b.poem.title}</div><div class="detail-poem-byline">${b.poem.author}</div><div class="detail-poem-text">${b.poem.clip}</div></div>`;
-  if(b.link)html+=`<a href="${b.link}" class="detail-link" target="_blank" rel="noopener">Read full review</a>`;
+
+  // Header
+  let html=`<div class="detail-top">
+    <div>
+      <div class="detail-eyebrow">${regionNames[b.region]} · ${b.country}</div>
+      <div class="detail-title">${b.reviewed?(b.books?b.books.length+' books reviewed':b.book||''):'Not yet read'}</div>
+    </div>
+    <button class="detail-close" onclick="closeDetail()">✕ Close</button>
+  </div>`;
+
+  // Tags
+  if(b.tags&&b.tags.length) html+=`<div class="detail-tags">${b.tags.map(t=>`<span class="detail-tag">${t}</span>`).join('')}</div>`;
+
+  // Future read notice
+  if(!b.reviewed&&!b.summary&&!(b.books&&b.books.length)){
+    html+=`<div style="font-family:var(--serif);font-style:italic;color:var(--ink-light);font-size:0.95rem;padding:0.5rem 0">On the reading list — review coming.</div>`;
+  }
+
+  // MULTI-BOOK: render each book as its own block
+  if(b.books&&b.books.length){
+    html+=`<div class="detail-section-label" style="margin-top:0.75rem">Books reviewed</div><div class="detail-books">`;
+    b.books.forEach(bk=>{
+      html+=`<div class="detail-book-block">
+        <div class="detail-book-title">${bk.title}</div>
+        <div class="detail-book-author">${bk.author}</div>`;
+      if(bk.summary) html+=`<div class="detail-book-review">${bk.summary}</div>`;
+      if(bk.quotes&&bk.quotes.length){
+        html+=`<div class="detail-book-quotes">`;
+        bk.quotes.forEach(q=>{html+=`<div class="detail-book-quote">"${q}"</div>`;});
+        html+=`</div>`;
+      }
+      if(bk.link) html+=`<a href="${bk.link}" class="detail-book-link" target="_blank" rel="noopener">Read full review</a>`;
+      html+=`</div>`;
+    });
+    html+=`</div>`;
+  }
+
+  // SINGLE-BOOK: original flat structure
+  if(!b.books){
+    if(b.summary) html+=`<div class="detail-section-label">Review</div><div class="detail-review">${b.summary}</div>`;
+    if(b.quotes&&b.quotes.length){
+      html+=`<div class="detail-section-label">Key quotes</div>`;
+      b.quotes.forEach(q=>{html+=`<div class="detail-quote">"${q}"</div>`;});
+    }
+    if(b.link) html+=`<a href="${b.link}" class="detail-link" target="_blank" rel="noopener">Read full review</a>`;
+  }
+
+  // POEM CODA — always at the bottom, always distinct
+  if(b.poem){
+    html+=`<div class="detail-poem-coda">
+      <div class="detail-poem-coda-label">Poem</div>
+      <div class="detail-poem-coda-title">${b.poem.title}</div>
+      <div class="detail-poem-coda-author">${b.poem.author}</div>
+      <div class="detail-poem-coda-text">${b.poem.clip}</div>
+    </div>`;
+  }
+
   panel.innerHTML=html;
   panel.classList.add('visible');
   panel.scrollIntoView({behavior:'smooth',block:'nearest'});
