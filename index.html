@@ -133,6 +133,7 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
 .ccard-country{font-size:14px;font-weight:500;color:var(--ink);line-height:1.2}
 .ccard-badge{font-size:9px;letter-spacing:0.06em;text-transform:uppercase;padding:2px 6px;border-radius:8px;white-space:nowrap;flex-shrink:0;margin-top:1px}
 .badge-reviewed{background:var(--teal-pale);color:var(--teal)}
+.badge-pending-review{background:#FEF3C7;color:#92400E}
 .badge-poem{background:var(--blue-pale);color:var(--blue)}
 .badge-future{background:var(--sand-dark);color:var(--ink-light)}
 .ccard-book{font-family:var(--serif);font-size:12px;color:var(--ink-mid);margin-bottom:2px;line-height:1.35;font-style:italic}
@@ -192,9 +193,9 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
   <h1 class="hero-title">Beyond <em>Achebe</em></h1>
   <p class="hero-sub">One novel and one poem from every country in Africa — telling the history of a continent through its fiction</p>
   <div class="hero-stats">
-    <div class="hstat"><span class="hstat-num">30+</span><span class="hstat-label">Reviews written</span></div>
-    <div class="hstat"><span class="hstat-num">35</span><span class="hstat-label">Countries read</span></div>
-    <div class="hstat"><span class="hstat-num">19</span><span class="hstat-label">Still to read</span></div>
+    <div class="hstat"><span class="hstat-num" id="stat-reviewed">—</span><span class="hstat-label">Countries read</span></div>
+    <div class="hstat"><span class="hstat-num" id="stat-pending">—</span><span class="hstat-label">Reviews pending</span></div>
+    <div class="hstat"><span class="hstat-num" id="stat-remaining">—</span><span class="hstat-label">Still to read</span></div>
     <div class="hstat"><span class="hstat-num">54</span><span class="hstat-label">Countries total</span></div>
   </div>
 </header>
@@ -308,14 +309,14 @@ const books=[
   {country:"Liberia",region:"west",reviewed:true,book:"She Would Be King",author:"Wayetu Moore",tags:["founding","magical realism","American Colonization Society","slavery"],summary:"In Philip Hitti's History of the Arabs, he highlights the long-standing Arab appreciation for oral story-telling and poetry which they call sihr halal — 'lawful magic.' In her debut novel Wayetu Moore channels this idea of lawful magic in her telling of an alternative origin story of the Pepper Coast lands that would become Liberia.",quotes:[],poem:null,link:"https://fuuo.blogspot.com/2020/04/marcusgarvey.wayetumoore.readingthecontinent.kruse.html"},
   {country:"Sierra Leone",region:"west",reviewed:true,book:"The Memory of Love",author:"Aminatta Forna",tags:["civil war","trauma","PTSD","love","endurance"],summary:"With beautiful, striking prose author Aminatta Forna reveals the soul of a nation where nearly everyone is stricken with post-traumatic stress disorder. And while PTSD may be the official western diagnosis, as one local notes: 'You call it a disorder, my friend. We call it life.'",quotes:["People are wrong when they talk of love at first sight. As she walks away from you, what you feel is loss. A premonition of loss.","People think war is the worst this country has ever seen: they have no idea what peace is like. The courage it takes simply to endure."],poem:null,link:"https://fuuo.blogspot.com/2018/06/kruses-key.memoryofcivilwar.love.forna.sierraleone.html"},
   {country:"Cabo Verde",region:"west",reviewed:true,book:"The Last Will and Testament of Senhor da Silva Araújo",author:"Germano Almeida",tags:["Lusophone","love","colonial legacy","melancholy"],summary:"Read It Because this translated piece of Cape Verdean fiction is beautiful, sad, and meandering as it examines the life of a poor peasant boy made good as a successful business owner. The reader is left to wonder: was Adelia actually real or was she a mad creation by a man unable to find his place in Cape Verdean society?",quotes:[],poem:null,link:"http://kruzoo.blogspot.com/2017/01/lastwillandtestament.araujo.capeverde.cv.html"},
-  {country:"Mali",region:"west",reviewed:false,book:"Future read",author:"",tags:[],summary:"",quotes:[],poem:null,link:""},
+  {country:"Mali",region:"west",reviewed:true,pendingReview:true,book:"Bound to Violence",author:"Yambo Ouologuem",tags:["Mali empire","slave trade","colonialism","violence","Prix Renaudot"],summary:"Review pending.",quotes:[],poem:null,link:""},
   {country:"Tanzania",region:"east",reviewed:true,book:"Afterlives / The Gunny Sack",author:"Abdulrazak Gurnah / M.G. Vassanji",tags:["colonialism","WWI","askari","Indian diaspora","Nobel Prize"],summary:"Gurnah's 10th novel spans the timeline from early 1900s east Africa to Tanzanian independence in the early 60s. In it he tells the multi-generational story of several families struggling in an East Africa caught in the middle of a fight between a waning Germany and a desperate teetering British empire. This is the mark of a great book for me—it shifts the attention of the western reader from a default focus on similar western powers and brings it to the personal level of the men and women who own the country and land.",quotes:["The askari left the land devastated, its people starving and dying in the hundreds of thousands, while they struggled on in their blind and murderous embrace of a cause whose origins they did not know."],poem:null,link:"https://www.beyondachebe.com/2023/03/afterlives-tanzania-kindle.html"},
   {country:"Kenya",region:"east",reviewed:true,book:"The Zanzibar Chest",author:"Aidan Hartley",tags:["journalism","memoir","Somalia","East Africa","war correspondent"],summary:"From time to time, God causes men to be born who have a lust to go abroad at the risk of their lives and discover news. If there were ever an engraving to be mounted on the wall of my hypothetical office it would be Kipling's opening quote from this book. One of my favorite books ever — not technically fiction but it sure reads like it.",quotes:[],poem:null,link:"http://fuuo.blogspot.com/2012/11/thezanzibarchest.aidenhartley.summary.review.notes.html"},
   {country:"Uganda",region:"east",reviewed:true,book:"All Our Names",author:"Dinaw Mengestu",tags:["revolution","post-independence","Uganda","Midwest America","love"],summary:"Read It Because it will Break Your Heart. And it's the Great African Novel. As I read through the final pages of the novel and watched the final paragraphs fade away my heart began to ache and break because I didn't want to let the characters go. And then I focused and slowly read through the final line. I won't ruin it for you but that line—oh that line—it will break your heart.",quotes:["No one needs to learn how to kill, but it took the foreigners who came to Africa to show us that it meant nothing to do so."],poem:null,link:"http://kruzoo.blogspot.com/2016/03/allournames.thegreatafricannovel.mengestu.ugandaindependence.fao.html"},
   {country:"Comoros",region:"east",reviewed:true,book:"The Kafir of Karthala",author:"Mohamed Toihiri",tags:["Islam","colonialism","satire","archipelago","coup"],summary:"Published in 2000 amidst one of Comoros' many coups, Toihiri has penned a wry, surprisingly racy novel that satirizes much of the politics and culture of his home country. I was only able to read it because I asked for a copy from the professor who had translated it at the University of Vermont. He was kind enough to send me a Word document with his translation.",quotes:[],poem:null,link:"http://kruzoo.blogspot.com/2016/04/kafirdekhartala.kafirofkhartala.comoros.moroni.auberi.legrandmarriage.fao.html"},
   {country:"Sudan",region:"horn",reviewed:false,book:"Lyrics Alley / What is the What?",author:"Leila Aboulela / Dave Eggers",tags:["civil war","Lost Boys","identity"],summary:"",quotes:[],poem:{title:"A Scream",author:"Muhammed Al-Faituri",clip:"I am the African,\nI am the one who has no father,\nnor mother,\nnor homeland—",link:"https://fuuo.blogspot.com/2012/05/african-poets-of-week-compilation.html"},link:""},
   {country:"Ethiopia",region:"horn",reviewed:true,book:"Beautiful Things That Heaven Bears / Beneath the Lion's Gaze",author:"Dinaw Mengestu / Maaza Mengiste",tags:["Haile Selassie","Derg","revolution","immigrant experience"],summary:"Before Adichie was regaling the world with her story of a relatively privileged immigrant experience in 'Americanah', Ethiopian author Dinaw Mengestu was pulling back the curtain on a much bleaker immigrant experience. The title comes from the closing lines of Dante's Inferno. Sepha and his friends have escaped the violence in their own country and arrived in America, 'seeing the stars.' Only they soon discover that while their new life may not be hell, it will likely be more like purgatory than paradiso.",quotes:["As it was, I did not come to America to find a better life. I came here running and screaming with the ghosts of an old one firmly attached to my back.","All the best dictators are colonels."],poem:null,link:"https://fuuo.blogspot.com/2018/05/kruses-keys.mengestu.beautifulthings.selassie.ethiopia.vw.html"},
-  {country:"Somalia",region:"horn",reviewed:true,book:"Warriors / The Insanity of God",author:"Gerald Hanley / Nik Ripken",tags:["nomad","clan","faith","persecution","Mogadishu"],summary:"When many critics of Christianity think of missionaries they picture black-clad old-fashioned looking men proselytizing loudly in the streets. If you fall into that category I challenge you to read this book—it will upend your perspective. At one point Ripken's NGO was the ONLY ONE operating in Somalia—his team of 8 was feeding 50,000 refugees a day.",quotes:["In those years in Somalia, we had 150 followers of Jesus in the country. When we left, only four were left alive.","The reason for persecution, then, is that people keep finding Jesus—and, then, they refuse to keep Him to themselves."],poem:{title:"Somalia",author:"K'Naan",clip:"In the place where I come from\nnobody laughs,\neverybody's working so hard\njust to eat—",link:"https://fuuo.blogspot.com/2111/02/poet-of-week-from-somalia-abdirashid.html"},link:"https://fuuo.blogspot.com/2020/04/ArethereSomaliChristians.mogadishu.ripken.html"},
+  {country:"Somalia",region:"horn",reviewed:true,book:"Warriors / The Insanity of God",author:"Gerald Hanley / Nik Ripken",tags:["nomad","clan","faith","persecution","Mogadishu"],summary:"When many critics of Christianity think of missionaries they picture black-clad old-fashioned looking men proselytizing loudly in the streets. If you fall into that category I challenge you to read this book—it will upend your perspective. At one point Ripken's NGO was the ONLY ONE operating in Somalia—his team of 8 was feeding 50,000 refugees a day.",quotes:["In those years in Somalia, we had 150 followers of Jesus in the country. When we left, only four were left alive.","The reason for persecution, then, is that people keep finding Jesus—and, then, they refuse to keep Him to themselves."],poem:{title:"Somalia",author:"K'Naan",clip:"In the place where I come from\nnobody laughs,\neverybody's working so hard\njust to eat—",link:"https://fuuo.blogspot.com/2011/02/poet-of-week-from-somalia-abdirashid.html"},link:"https://fuuo.blogspot.com/2020/04/ArethereSomaliChristians.mogadishu.ripken.html"},
   {country:"Eritrea",region:"horn",reviewed:true,book:"Gratitude in Low Voices",author:"Dawit Gebremichael Habte",tags:["refugee","independence","Italy","Ethiopia","EPLF"],summary:"Equal parts memoir, history and adventure novel, Dawit Habte's book is the story of not only his country's 91-year struggle for independence but also his own incredible journey from a countryside village in Eritrea to the offices of Bloomberg as a software engineer. One thing that struck me was Habte's commentary on the dehumanizing nature of seeking asylum—where you are assumed to be starting anew on a better life despite having a family, people, and country that you call home half a world away.",quotes:["Dry the sea to kill the fish — unofficial motto of Ethiopia as they sought to destroy any hope of Eritrean independence.","A refugee is always a pawn to be used.","Nostalgia is the suffering caused by an unappeased yearning to return."],poem:null,link:"https://fuuo.blogspot.com/2019/09/kruseskeys.bloomberg.habte.read-gratitude-in-low-voices-to.html"},
   {country:"Djibouti",region:"horn",reviewed:true,book:"Transit",author:"Abdourahman Waberi",tags:["refugees","migration","displacement","democracy"],summary:"There's not exactly a ton of Djibouti fiction out there, especially en anglais. But when it comes to Djibouti fiction, the author Waberi reigns supreme. Transit interweaves Bashir's story with that of Harbi as the narrative arc builds toward their intersection. The staying power comes from Waberi's deft touch as he tackles the complexity of his country's history through alternating monologues.",quotes:["Democracy, that hot air of politicians who take bread from whoever giving it.","I'm the product of love without borders; I'm a hyphen between two worlds."],poem:null,link:"https://kruzoo.blogspot.com/2017/11/kruses-key-read-transit-to-understand.html"},
   {country:"Congo (DRC)",region:"central",reviewed:true,book:"A Bend in the River / Dancing in the Glory of Monsters",author:"V.S. Naipaul / Jason Stearns",tags:["Mobutu","Congo Wars","colonialism","Lumumba","Kabila"],summary:"In Dancing in the Glory of Monsters, Stearns attempts to unravel the most complicated conflict that the world never cared about: the two wars in the Congo—as he notes, 'generally we do not care about a strange war fought by black people somewhere in the middle of Africa.' As Stearns digs deeper and deeper into the wars, you are quickly struck by the overwhelming intensity of violence.",quotes:["Africa has the shape of a pistol and Congo is its trigger. —Frantz Fanon","Who has not been Mobutists in this country? We saw you all, dancing in the glory of the monster.","Lies come up in the elevator, the truth takes the stairs but gets here eventually."],poem:{title:"Impuissance",author:"Jean-Baptiste Tati Loutard",clip:"Le fleuve coule encore\ndans les veines de la terre,\nmais nos mains ne peuvent plus\nle tenir—",link:"http://fuuo.blogspot.com/2010/09/poet-of-week-from-congo-jean-baptiste.html"},link:"https://fuuo.blogspot.com/2018/07/kruseskey.mobuto.kabila.lumumba.stearns.dancingcongo.html"},
@@ -365,6 +366,17 @@ const books=[
 
 const regionNames={maghreb:'Maghreb',west:'West Africa',east:'East Africa',horn:'Horn of Africa',central:'Central Africa',southern:'Southern Africa'};
 
+function updateStats(){
+  const read=books.filter(b=>b.reviewed).length;
+  const pending=books.filter(b=>b.reviewed&&b.pendingReview).length;
+  const remaining=books.filter(b=>!b.reviewed).length;
+  document.getElementById('stat-reviewed').textContent=read;
+  document.getElementById('stat-pending').textContent=pending;
+  document.getElementById('stat-remaining').textContent=remaining;
+  const fill=document.querySelector('.progress-fill');
+  if(fill) fill.style.width=(read/54*100).toFixed(1)+'%';
+}
+
 // Helper: get display book title(s) and author(s) from either flat or array structure
 function getCardBook(b){
   if(b.books) return {title:b.books.map(x=>x.title).join(' · '), author:b.books.map(x=>x.author.split(' ').pop()).join(' · '), count:b.books.length};
@@ -377,7 +389,11 @@ function renderGrid(region){
   grid.innerHTML=filtered.map(b=>{
     const hasContent=b.reviewed||b.poem;
     const bc=hasContent?`has-content r-${b.region}`:'';
-    const badge=b.reviewed?'<span class="ccard-badge badge-reviewed">Reviewed</span>':b.poem?'<span class="ccard-badge badge-poem">Poem</span>':'<span class="ccard-badge badge-future">Future</span>';
+    let badge;
+    if(b.reviewed&&b.pendingReview) badge='<span class="ccard-badge badge-pending-review">Review pending</span>';
+    else if(b.reviewed) badge='<span class="ccard-badge badge-reviewed">Reviewed</span>';
+    else if(b.poem) badge='<span class="ccard-badge badge-poem">Poem</span>';
+    else badge='<span class="ccard-badge badge-future">Future</span>';
     const {title,author,count}=getCardBook(b);
     const countBadge=count>1?`<span class="ccard-count">${count} books</span>`:'';
     let bookLine='';
@@ -447,14 +463,16 @@ function showDetail(key){
     if(b.link) html+=`<a href="${b.link}" class="detail-link" target="_blank" rel="noopener">Read full review</a>`;
   }
 
-  // POEM CODA — always at the bottom, always distinct (duplicate link removed)
+  // POEM CODA — always at the bottom, always distinct
   if(b.poem){
+    const poemLink=b.poem.link?`<a href="${b.poem.link}" style="font-size:11px;color:var(--blue);text-decoration:none;margin-top:0.5rem;display:inline-block" target="_blank" rel="noopener">Read original post ↗</a>`:'';
     html+=`<div class="detail-poem-coda">
       <div class="detail-poem-coda-label">Poem</div>
       <div class="detail-poem-coda-title">${b.poem.title}</div>
       <div class="detail-poem-coda-author">${b.poem.author}</div>
       <div class="detail-poem-coda-text">${b.poem.clip}</div>
       ${b.poem.link?`<a href="${b.poem.link}" class="detail-link" target="_blank" rel="noopener" style="margin-top:0.75rem">Read full poem</a>`:''}
+      ${poemLink}
     </div>`;
   }
 
@@ -475,6 +493,7 @@ document.getElementById('region-tabs').addEventListener('click',e=>{
 });
 
 renderGrid('all');
+updateStats();
 </script>
 </body>
 </html>
