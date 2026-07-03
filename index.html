@@ -87,7 +87,12 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
 .detail-close{font-size:12px;color:var(--ink-light);cursor:pointer;padding:4px 9px;border-radius:4px;border:0.5px solid var(--border);background:var(--sand);flex-shrink:0;font-family:var(--sans)}
 .detail-close:hover{background:var(--sand-dark)}
 .detail-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.25rem}
-.detail-tag{font-size:10px;padding:2px 9px;border-radius:10px;background:var(--sand);color:var(--ink-light);border:0.5px solid var(--border)}
+.detail-tag{font-size:10px;padding:2px 9px;border-radius:10px;background:var(--sand);color:var(--ink-light);border:0.5px solid var(--border);cursor:pointer;transition:background 0.15s,color 0.15s}
+.detail-tag:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tag-filter-bar{display:none;align-items:center;gap:8px;margin-bottom:1rem;font-size:0.85rem;color:var(--ink-light)}
+.tag-filter-bar.visible{display:flex}
+.tag-filter-chip{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:4px 10px;border-radius:10px;font-size:0.8rem}
+.tag-filter-chip button{background:none;border:0;color:#fff;cursor:pointer;font-size:0.8rem;padding:0;line-height:1}
 .detail-section-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;margin-top:1.25rem}
 .detail-review{font-family:var(--serif);font-size:1rem;line-height:1.85;color:var(--ink-mid);border-left:2px solid var(--border);padding-left:1.1rem}
 .detail-quote{font-family:var(--serif);font-size:1rem;line-height:1.75;color:var(--ink-mid);font-style:italic;padding:0.85rem 1.1rem;border-radius:4px;background:var(--sand);margin-bottom:0.6rem;border-left:2px solid var(--border)}
@@ -249,6 +254,8 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
     <button class="tab-btn" data-region="southern"><span class="rdot rdot-southern"></span>Southern Africa</button>
   </nav>
 
+  <div class="tag-filter-bar" id="tag-filter-bar"></div>
+
   <div id="detail-panel" class="detail-panel"></div>
   <div id="country-grid" class="country-grid"></div>
 
@@ -333,12 +340,13 @@ const books=[
   {country:"Burundi",region:"central",reviewed:true,book:"Small Country",author:"Gaël Faye",tags:["genocide","Rwanda","childhood","ethnic violence","exile"],summary:"One of the best books that I read this year. I sped through it in three heady days, finishing the last third of the book in a marathon nighttime session tucked in bed next to my sleeping wife. I couldn't put the book down. 'Small Country' is one of the first novels about the Rwandan genocide and was translated into English in 2018 after winning the 2016 Prix Goncourt des Lycéens.",quotes:["I used to think I was exiled from my country. But, in retracing the steps of my past, I have understood that I was exiled from my childhood. Which seems so much crueler.","We were living on the axis of the Great Rift, at the precise spot where Africa fractures. The people of this region mirrored the land.","Poetry may not be news. But it is all that human beings retain from their journey on this earth."],poem:null,link:"https://fuuo.blogspot.com/2019/09/read-small-country-to-see-ethnic.html"},
   {country:"Rwanda",region:"central",reviewed:true,book:"Everything is Yours, Everything is Not Yours",author:"Clemantine Wamariya",tags:["genocide","memoir","refugee","Yale","survivor"],summary:"Powerful autobiographical longread about a Rwandan genocide flee-er turned wandering refugee turned Yale student turned young woman who found her voice. Her story casts aside any easy categorizations of her struggle and journey. I found myself checking the scroll bar on my iPad to see how much of the article I had left—I didn't want it to end.",quotes:[],poem:null,link:"http://fuuo.blogspot.com/2015/07/WIRL.vavasseur.hsc6.rwanda.genocide.rsvp.salter.mg.html"},
   {country:"Equatorial Guinea",region:"central",reviewed:true,book:"By Night the Mountain Burns",author:"Juan Tomás Ávila Laurel",tags:["island","oral tradition","Spanish Africa","memory","colonialism"],summary:"Equatorial Guinea is the only Spanish-speaking country in Africa—it's also the richest African country you've never heard of per capita, due to the discovery of oil there in the 90s. To my knowledge this is still the only work of fiction available in English from Equatorial Guinea.",quotes:[],poem:null,link:"https://fuuo.blogspot.com/2020/06/kruses-keys-read-by-night-mountains.html"},
-  {country:"South Africa",region:"southern",reviewed:true,tags:["Apartheid","Booker Prize","Afrikaner","ANC","post-apartheid","memoir"],
+  {country:"South Africa",region:"southern",reviewed:true,tags:["Apartheid","Booker Prize","Afrikaner","ANC","post-apartheid","memoir","Mandela","Robben Island"],
    books:[
      {title:"The Promise",author:"Damon Galgut",summary:"Of course one isn't awarded the Booker prize for penning a surface-level story about a white family in South Africa. Rather Galgut has written a soaring multi-decade exposition on the promise of a post-Apartheid South Africa writ large. It's a story that encompasses South Africa's promises to its black and coloured people, the ANC's promises to its constituency, as well as the psychic overstep of whites deigning to keep promises that never should have been had to be made in the first place.",quotes:["It is nothing. Your leftovers. That's what you're giving my mother, thirty years too late. It's not yours to give. It already belongs to us."],link:"https://www.beyondachebe.com/2022/01/thepromise.damongalgut.southafrica.booker.html"},
-     {title:"Born a Crime",author:"Trevor Noah",summary:"You may know Trevor Noah as the host of the Daily Show but long before he entered the mainstream he was a derelict kid born to a black Xhosa mother and a white Swiss father—one who appeared 'colored' to those around him but who was raised in the Xhosa culture.",quotes:[],link:"https://kruzoo.blogspot.com/2021/01/2021-reading-list.html"}
+     {title:"Born a Crime",author:"Trevor Noah",summary:"You may know Trevor Noah as the host of the Daily Show but long before he entered the mainstream he was a derelict kid born to a black Xhosa mother and a white Swiss father—one who appeared 'colored' to those around him but who was raised in the Xhosa culture.",quotes:[],link:"https://kruzoo.blogspot.com/2021/01/2021-reading-list.html"},
+     {title:"Long Walk to Freedom",author:"Nelson Mandela",summary:"I started Mandela's autobiography a few weeks before his passing after watching it gather digital dust on my kindle bookshelf for over a year. My reticence to dive into this book stemmed from a general disdain for dense, bloated, self-important celebrations of one's life often captured in autobiographies. My misgivings could not have been more misplaced. More a series of chronological vignettes than a traditional biography, Madiba beautiful and humbly tells not only his story — but that of South Africa.",quotes:["Ndiwelimilambo enamagama (I have crossed famous rivers).","For to be free is not merely to cast off one's chains, but to live in a way that respects and enhances the freedom of others.","A nation should not be judged by how it treats its highest citizens, but its lowest ones — and South Africa treated its imprisoned African citizens like animals.","I am fundamentally an optimist... part of being optimistic is keeping one's head pointed toward the sun, one's feet moving forward."],link:"https://kruzoo.blogspot.com/2015/02/long-walk-to-freedom-kindle-notes.nelson.mandela.za.html"}
    ],
-   poem:null},
+   poem:{title:"I Want You To Know—A Poem On the Passing of Madiba",author:"Jack Kruse",clip:"I want you to know sweet daughters\nThat a man lived, loved, sacrificed and forgave for his people.\nI want you to know these words\nNdiwelimilambo enamagama—",link:"https://kruzoo.blogspot.com/2013/12/Nelsonmandela.madiba.deathandizindisaquala.poem.daughters.fao.html"}},
   {country:"Zimbabwe",region:"southern",reviewed:true,book:"We Need New Names / They Are Coming",author:"NoViolet Bulawayo / Christopher Mlalazi",tags:["Mugabe","emigration","children","poverty","street kids"],summary:"There's a two-lane road that snakes down the hill from Ivandry in Tana. Here you come to recognize the faces of impoverished kids as they travel in packs, endlessly rapping on your windows as you sit in traffic. Reading NoViolet Bulawayo's 'We Need New Names' brought all of this viscerally back.",quotes:[],poem:null,link:"http://kruzoo.blogspot.com/2015/06/streetkids.mg.weneednewnames.zimbabwe.mugabe.tana.poverty.html"},
   {country:"Mozambique",region:"southern",reviewed:true,book:"Sleepwalking Land",author:"Mia Couto",tags:["civil war","magical realism","oral tradition","Portuguese"],summary:"Mia Couto has crafted a surreal, engrossing tragic tale of the hopelessness of life during the fifteen-year civil war that consumed post-independence Mozambique. Couto focuses on pulling the reader into the psyche of those affected most by war—the ones not doing the killing—the women and the children.",quotes:["The best things in life are those that don't lie ahead."],poem:{title:"If You Want to Know Me",author:"Noémia de Sousa",clip:"If you want to know who I am,\nexamine with careful eyes\nthis piece of black wood\nthat some unknown Makonde brother\ncut and carved\nwith inspired hands—",link:"https://fuuo.blogspot.com/2012/05/african-poets-of-week-compilation.html"},link:"http://kruzoo.blogspot.com/2017/02/sleepwalking-land.miacouto.mozambique.portugal.africa.html"},
   {country:"Zambia",region:"southern",reviewed:true,book:"Cocktail Hour Under the Tree of Forgetfulness",author:"Alexandra Fuller",tags:["memoir","independence","colonial Africa"],summary:"Emily said she appreciated the story's honesty and eye-opening look at both the beauty and sorrow of life. The author shares a unique perspective of a white girl living in Africa during the period of political independence.",quotes:[],poem:{title:"In the Fist of Your Hand",author:"Gwendoline Konie",clip:"You hold the seed of nations\nin the fist of your hand,\nplant it gently, water it\nwith the tears of the living—",link:"http://fuuo.blogspot.com/2011/02/poet-of-week-gwendoline-konie-from.html"},link:"https://kruzoo.blogspot.com/2021/01/2021-reading-list.html"},
@@ -397,9 +405,12 @@ function getCardBook(b){
   return {title:b.book||'', author:b.author||'', count:1};
 }
 
+let currentTag=null;
+
 function renderGrid(region){
   const grid=document.getElementById('country-grid');
-  const filtered=region==='all'?books:books.filter(b=>b.region===region);
+  let filtered=region==='all'?books:books.filter(b=>b.region===region);
+  if(currentTag) filtered=filtered.filter(b=>b.tags&&b.tags.includes(currentTag));
   grid.innerHTML=filtered.map(b=>{
     const hasContent=b.reviewed||b.poem;
     const bc=hasContent?`has-content r-${b.region}`:'';
@@ -441,7 +452,7 @@ function showDetail(key){
   </div>`;
 
   // Tags
-  if(b.tags&&b.tags.length) html+=`<div class="detail-tags">${b.tags.map(t=>`<span class="detail-tag">${t}</span>`).join('')}</div>`;
+  if(b.tags&&b.tags.length) html+=`<div class="detail-tags">${b.tags.map(t=>`<span class="detail-tag" onclick="filterByTag('${t.replace(/'/g,"\\'")}')">${t}</span>`).join('')}</div>`;
 
   // Future read notice
   if(!b.reviewed&&!b.summary&&!(b.books&&b.books.length)){
@@ -494,6 +505,36 @@ function showDetail(key){
 }
 
 function closeDetail(){document.getElementById('detail-panel').classList.remove('visible');}
+
+function updateTagBar(){
+  const bar=document.getElementById('tag-filter-bar');
+  if(currentTag){
+    bar.classList.add('visible');
+    bar.innerHTML=`<span class="tag-filter-chip">${currentTag} <button onclick="clearTagFilter()" aria-label="Clear tag filter">✕</button></span>`;
+  } else {
+    bar.classList.remove('visible');
+    bar.innerHTML='';
+  }
+}
+
+function getActiveRegion(){
+  const btn=document.querySelector('.tab-btn.active');
+  return btn?btn.dataset.region:'all';
+}
+
+function filterByTag(tag){
+  currentTag=tag;
+  closeDetail();
+  updateTagBar();
+  renderGrid(getActiveRegion());
+  document.getElementById('atlas').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function clearTagFilter(){
+  currentTag=null;
+  updateTagBar();
+  renderGrid(getActiveRegion());
+}
 
 document.getElementById('region-tabs').addEventListener('click',e=>{
   const btn=e.target.closest('.tab-btn');
