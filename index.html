@@ -30,6 +30,8 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
 .nav-links{display:flex;gap:1.5rem;list-style:none}
 .nav-links a{font-size:11px;color:rgba(247,243,238,0.5);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s}
 .nav-links a:hover{color:var(--gold)}
+.nav-links button.nav-feedback{background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans);font-size:11px;color:rgba(247,243,238,0.5);letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s}
+.nav-links button.nav-feedback:hover{color:var(--gold)}
 
 /* HERO */
 .hero{background:var(--ink);color:var(--sand);padding:4.5rem 2rem 3.5rem;text-align:center}
@@ -161,6 +163,8 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
 .footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;list-style:none}
 .footer-links a{font-size:11px;color:rgba(247,243,238,0.4);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase}
 .footer-links a:hover{color:var(--gold)}
+.footer-links button.nav-feedback{background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans);font-size:11px;color:rgba(247,243,238,0.4);letter-spacing:0.06em;text-transform:uppercase}
+.footer-links button.nav-feedback:hover{color:var(--gold)}
 .footer-rule{border:none;border-top:0.5px solid rgba(247,243,238,0.08);margin:1.5rem auto;max-width:200px}
 .footer-copy{font-size:11px;color:rgba(247,243,238,0.22)}
 
@@ -180,6 +184,75 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
   .atlas-section{padding:2.5rem 1.25rem 4rem}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ══ FEEDBACK / SUGGESTIONS WIDGET ══ */
+#ba-fb-open{
+  position:fixed;z-index:9998;
+  right:calc(20px + env(safe-area-inset-right,0px));
+  bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:24px;cursor:pointer;
+  background:var(--ink);color:var(--sand);border:0.5px solid rgba(184,124,46,0.55);
+  font-family:var(--serif);font-size:15px;letter-spacing:0.01em;
+  box-shadow:0 4px 20px rgba(26,20,16,0.28);
+  transition:background 0.15s,border-color 0.15s;
+}
+#ba-fb-open:hover{background:#2A211A;border-color:var(--gold)}
+#ba-fb-open:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+#ba-fb-open .fb-mark{color:var(--gold-light);font-size:15px;line-height:1}
+#ba-fb-overlay{
+  position:fixed;inset:0;z-index:9999;display:none;
+  align-items:center;justify-content:center;padding:1.25rem;
+  background:rgba(26,20,16,0.55);backdrop-filter:blur(2px);
+}
+#ba-fb-overlay.fb-on{display:flex}
+#ba-fb-card{
+  width:100%;max-width:480px;max-height:88vh;overflow-y:auto;
+  background:var(--sand);border-radius:8px;border-top:3px solid var(--gold);
+  padding:1.75rem;box-shadow:0 12px 48px rgba(26,20,16,0.4);
+}
+#ba-fb-card h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin-bottom:6px}
+#ba-fb-card .fb-intro{font-family:var(--serif);font-style:italic;font-size:1rem;line-height:1.6;color:var(--ink-light);margin-bottom:1.35rem}
+#ba-fb-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+#ba-fb-close{
+  flex-shrink:0;background:none;border:0.5px solid var(--border);border-radius:4px;
+  color:var(--ink-light);cursor:pointer;font-size:13px;padding:4px 9px;
+  font-family:var(--sans);line-height:1.4;
+}
+#ba-fb-close:hover{background:var(--sand-dark);color:var(--ink)}
+#ba-fb-card label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-light);margin-bottom:5px}
+#ba-fb-card input[type=text],#ba-fb-card input[type=email],#ba-fb-card select,#ba-fb-card textarea{
+  width:100%;background:#fff;border:0.5px solid var(--border);border-radius:4px;
+  padding:9px 11px;font-family:var(--sans);font-size:14px;color:var(--ink);line-height:1.5;
+}
+#ba-fb-card textarea{font-family:var(--serif);font-size:1rem;line-height:1.65;min-height:112px;resize:vertical}
+#ba-fb-card input:focus,#ba-fb-card select:focus,#ba-fb-card textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 2px rgba(184,124,46,0.16);
+}
+#ba-fb-card .fb-field{margin-bottom:1rem}
+#ba-fb-card .fb-row{display:flex;gap:10px}
+#ba-fb-card .fb-row .fb-field{flex:1}
+#ba-fb-card .fb-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#ba-fb-send{
+  width:100%;margin-top:0.35rem;padding:11px;border:none;border-radius:4px;cursor:pointer;
+  background:var(--ink);color:var(--sand);font-family:var(--serif);font-size:1.05rem;
+  letter-spacing:0.01em;transition:background 0.15s;
+}
+#ba-fb-send:hover{background:#2A211A}
+#ba-fb-send:disabled{opacity:0.55;cursor:default}
+#ba-fb-send:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#ba-fb-note{font-size:12.5px;line-height:1.55;margin-top:0.85rem;color:var(--ink-light);min-height:1em}
+#ba-fb-note.fb-err{color:#A8331A}
+#ba-fb-done{display:none;text-align:center;padding:1.5rem 0 0.5rem}
+#ba-fb-done p{font-family:var(--serif);font-size:1.15rem;font-style:italic;line-height:1.65;color:var(--ink-mid);margin-bottom:1.35rem}
+#ba-fb-done button{background:none;border:0.5px solid var(--border);border-radius:4px;padding:8px 18px;cursor:pointer;font-family:var(--sans);font-size:13px;color:var(--ink-mid)}
+#ba-fb-overlay.fb-sent #ba-fb-form{display:none}
+#ba-fb-overlay.fb-sent #ba-fb-done{display:block}
+@media(max-width:480px){
+  #ba-fb-open{right:14px;bottom:14px;padding:9px 15px;font-size:14px}
+  #ba-fb-card{padding:1.35rem}
+  #ba-fb-card .fb-row{flex-direction:column;gap:0}
+}
 </style>
 </head>
 <body>
@@ -190,6 +263,7 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
     <li><a href="#about">About</a></li>
     <li><a href="#atlas">The Atlas</a></li>
     <li><a href="http://fuuo.blogspot.com/p/after-looking-at-my-reading-lists-from.html" target="_blank">Full list</a></li>
+    <li><button type="button" class="nav-feedback" onclick="baFeedbackOpen()">Suggest a book</button></li>
   </ul>
 </nav>
 
@@ -276,10 +350,73 @@ body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:1
     <li><a href="http://fuuo.blogspot.com/p/after-looking-at-my-reading-lists-from.html" target="_blank">Full reading list</a></li>
     <li><a href="http://fuuo.blogspot.com/2012/05/african-poets-of-week-compilation.html" target="_blank">Poets of the Week</a></li>
     <li><a href="http://fuuo.blogspot.com/p/the-fao-africa-book-list.html" target="_blank">FAO Africa book list</a></li>
+    <li><button type="button" class="nav-feedback" onclick="baFeedbackOpen()">Suggest a book</button></li>
   </ul>
   <hr class="footer-rule">
   <p class="footer-copy">A Navy Foreign Area Officer's literary project, begun in 2016</p>
 </footer>
+
+<!-- ══ FEEDBACK / SUGGESTIONS WIDGET ══ -->
+<button id="ba-fb-open" type="button" aria-haspopup="dialog" onclick="baFeedbackOpen()">
+  <span class="fb-mark" aria-hidden="true">✎</span>Suggestions
+</button>
+
+<div id="ba-fb-overlay" role="dialog" aria-modal="true" aria-labelledby="ba-fb-title">
+  <div id="ba-fb-card">
+    <div id="ba-fb-head">
+      <div>
+        <h2 id="ba-fb-title">Suggest a book, or tell me what's off</h2>
+        <p class="fb-intro">Know a novel or poem I'm missing? Spotted an error? Send it along.</p>
+      </div>
+      <button id="ba-fb-close" type="button">✕ Close</button>
+    </div>
+
+    <form id="ba-fb-form" novalidate>
+      <div class="fb-field">
+        <label for="ba-fb-kind">What's this about</label>
+        <select id="ba-fb-kind" name="kind">
+          <option>A book or poem to read</option>
+          <option>A correction</option>
+          <option>General feedback</option>
+        </select>
+      </div>
+
+      <div class="fb-field">
+        <label for="ba-fb-country">Country (optional)</label>
+        <input type="text" id="ba-fb-country" name="country" placeholder="Niger, Gabon, Lesotho…">
+      </div>
+
+      <div class="fb-field">
+        <label for="ba-fb-msg">Your message</label>
+        <textarea id="ba-fb-msg" name="message" placeholder="Title, author, and why it belongs on the list…"></textarea>
+      </div>
+
+      <div class="fb-row">
+        <div class="fb-field">
+          <label for="ba-fb-name">Name (optional)</label>
+          <input type="text" id="ba-fb-name" name="name">
+        </div>
+        <div class="fb-field">
+          <label for="ba-fb-email">Email (optional)</label>
+          <input type="email" id="ba-fb-email" name="email" placeholder="if you'd like a reply">
+        </div>
+      </div>
+
+      <div class="fb-hp" aria-hidden="true">
+        <label for="ba-fb-hp">Leave this empty</label>
+        <input type="text" id="ba-fb-hp" name="_gotcha" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button id="ba-fb-send" type="submit">Send</button>
+      <div id="ba-fb-note" role="status" aria-live="polite"></div>
+    </form>
+
+    <div id="ba-fb-done">
+      <p>Thank you — it's in my inbox. Every good suggestion lands on the list eventually.</p>
+      <button type="button" id="ba-fb-done-close">Close</button>
+    </div>
+  </div>
+</div>
 
 <script src="books.js"></script>
 <script>
@@ -442,8 +579,146 @@ document.getElementById('region-tabs').addEventListener('click',e=>{
   renderGrid(btn.dataset.region);
 });
 
-renderGrid('all');
-updateStats();
+if(typeof books === 'undefined'){
+  document.getElementById('country-grid').innerHTML =
+    '<p style="font-family:var(--serif);font-style:italic;color:var(--ink-light);padding:1.5rem 0">'+
+    'The reading list didn\'t load. Try refreshing — if it keeps happening, books.js is missing or failed to fetch.</p>';
+} else {
+  renderGrid('all');
+  updateStats();
+}
+</script>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   FEEDBACK / SUGGESTIONS WIDGET
+   ══════════════════════════════════════════════════════════════
+   CONFIG — pick ONE of the three ways to receive messages:
+
+   1. EMAIL ONLY (no setup). Leave ENDPOINT and ACCESS_KEY empty.
+      The form opens the visitor's own mail app, pre-filled.
+
+   2. WEB3FORMS (no account). Get a free access key at
+      web3forms.com, paste it into ACCESS_KEY. Messages arrive
+      in your inbox; nothing else to change.
+
+   3. FORMSPREE (account). Create a form at formspree.io, paste
+      its URL (https://formspree.io/f/xxxxxxxx) into ENDPOINT.
+
+   EMAIL is always used as the fallback if a send fails.
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var ACCESS_KEY = "b8cf6764-abdb-4b50-b461-55f99ab72543";   // Web3Forms key
+  var ENDPOINT   = "";                 // Formspree URL, or leave empty
+  var EMAIL      = "jackkruseiii@gmail.com";  // your address
+
+  if(ACCESS_KEY && !ENDPOINT) ENDPOINT = "https://api.web3forms.com/submit";
+
+  var overlay = document.getElementById('ba-fb-overlay'),
+      card    = document.getElementById('ba-fb-card'),
+      form    = document.getElementById('ba-fb-form'),
+      note    = document.getElementById('ba-fb-note'),
+      send    = document.getElementById('ba-fb-send'),
+      lastFocus = null;
+
+  function val(id){ return (document.getElementById(id).value || '').trim(); }
+
+  window.baFeedbackOpen = function(){
+    lastFocus = document.activeElement;
+    overlay.classList.remove('fb-sent');
+    note.textContent = '';
+    overlay.classList.add('fb-on');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ document.getElementById('ba-fb-kind').focus(); }, 30);
+  };
+  function closePanel(){
+    overlay.classList.remove('fb-on');
+    document.body.style.overflow = '';
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function setNote(text, isError){
+    note.textContent = text;
+    note.className = isError ? 'fb-err' : '';
+  }
+
+  document.getElementById('ba-fb-close').addEventListener('click', closePanel);
+  document.getElementById('ba-fb-done-close').addEventListener('click', closePanel);
+  overlay.addEventListener('mousedown', function(e){ if(e.target === overlay) closePanel(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && overlay.classList.contains('fb-on')) closePanel();
+  });
+  /* keep tabbing inside the panel while it's open */
+  card.addEventListener('keydown', function(e){
+    if(e.key !== 'Tab') return;
+    var f = card.querySelectorAll('button, input, select, textarea, a[href]');
+    f = Array.prototype.filter.call(f, function(el){
+      return el.offsetParent !== null && el.tabIndex !== -1 && !el.disabled;
+    });
+    if(!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(val('ba-fb-hp')) return;                      /* bot caught by honeypot */
+
+    if(!val('ba-fb-msg')){
+      setNote('Add a message first — a title and author is plenty.', true);
+      document.getElementById('ba-fb-msg').focus();
+      return;
+    }
+
+    var kind    = val('ba-fb-kind'),
+        country = val('ba-fb-country'),
+        body    = val('ba-fb-msg'),
+        name    = val('ba-fb-name'),
+        email   = val('ba-fb-email'),
+        page    = (location.pathname + location.search) || '/';
+
+    if(!ENDPOINT){
+      var text = kind + '\n\nCountry: ' + (country || '—') +
+                 '\n\n' + body +
+                 '\n\n— ' + (name || 'a reader') + (email ? ' (' + email + ')' : '') +
+                 '\nSent from ' + page;
+      window.location.href = 'mailto:' + EMAIL +
+        '?subject=' + encodeURIComponent('Beyond Achebe — ' + kind) +
+        '&body='    + encodeURIComponent(text);
+      overlay.classList.add('fb-sent');
+      return;
+    }
+
+    var payload = {
+      subject: 'Beyond Achebe — ' + kind,
+      from_name: name || 'A reader',
+      kind: kind,
+      country: country || '—',
+      message: body,
+      name: name || '—',
+      email: email || '',
+      page: page
+    };
+    if(ACCESS_KEY) payload.access_key = ACCESS_KEY;
+
+    send.disabled = true;
+    setNote('Sending…', false);
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      if(!r.ok) throw new Error('bad status');
+      form.reset();
+      overlay.classList.add('fb-sent');
+    }).catch(function(){
+      setNote('That didn\u2019t go through. Email it to ' + EMAIL + ' instead.', true);
+    }).then(function(){
+      send.disabled = false;
+    });
+  });
+})();
 </script>
 </body>
 </html>
