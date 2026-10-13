@@ -586,6 +586,9 @@ if(typeof books === 'undefined'){
 } else {
   renderGrid('all');
   updateStats();
+  // Deep link from Dad's Bookshelf: ?country=Nigeria opens that country's entry.
+  const c=new URLSearchParams(location.search).get('country');
+  if(c&&books.some(b=>b.country===c)) showDetail(c);
 }
 </script>
 
