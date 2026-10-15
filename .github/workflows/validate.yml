@@ -1,0 +1,29 @@
+name: Check reading list
+
+# Runs on every upload/commit. A red ✗ next to the commit means books.js
+# has a problem — open the run to see the exact line. The live site still
+# deploys either way (GitHub Pages is separate), so fix it promptly.
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate books.js
+        run: node scripts/validate.js
+      - name: Check page scripts parse
+        run: |
+          node --check assets/atlas.js
+          node --check assets/feedback.js
+      - name: Check index.html references exist
+        run: |
+          for f in books.js assets/site.css assets/atlas.js assets/feedback.js assets/map.jpg favicon.svg CNAME; do
+            test -f "$f" || { echo "missing: $f"; exit 1; }
+          done
+          grep -q 'src="books.js"' index.html || { echo "index.html no longer loads books.js"; exit 1; }
