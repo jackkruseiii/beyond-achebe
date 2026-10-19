@@ -141,9 +141,7 @@
   /* ── stats ── */
   function updateStats(){
     var read = books.filter(function(b){return b.reviewed;}).length;
-    var pending = books.filter(function(b){return b.reviewed && b.pendingReview;}).length;
     document.getElementById('stat-reviewed').textContent = read;
-    document.getElementById('stat-pending').textContent = pending;
     document.getElementById('stat-remaining').textContent = TOTAL_COUNTRIES - read;
     document.getElementById('stat-total').textContent = TOTAL_COUNTRIES;
     var fill = document.querySelector('.progress-fill');
@@ -152,7 +150,7 @@
 
   /* ── grid ── */
   var BADGES = {
-    pending:  '<span class="ccard-badge badge-pending-review">Review pending</span>',
+    pending:  '<span class="ccard-badge badge-reviewed">Read</span>',
     reviewed: '<span class="ccard-badge badge-reviewed">Reviewed</span>',
     poem:     '<span class="ccard-badge badge-poem">Poem</span>',
     future:   '<span class="ccard-badge badge-future">Future</span>'

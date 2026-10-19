@@ -21,7 +21,8 @@ Format: `- [ ]` open, `- [x]` resolved (date + what was decided).
 - [ ] 9. **Author origin vs. the premise** ("a novel by an author from every country"). Non-national primary picks: Sudan (*The Dissent Channel*, American; option Tayeb Salih), Somalia (Hanley / Ripken; option Nuruddin Farah), Congo DRC (Naipaul / Stearns; option Fiston Mwanza Mujila, *Tram 83*), Burkina Faso (*American Spy*, American), Libya (Alessandro Spina; option Hisham Matar), Kenya (*The Zanzibar Chest*; option Ngũgĩ wa Thiong'o), Zambia (Alexandra Fuller memoir), Benin future (Bruce Chatwin). Fine if intentional; needs a deliberate call.
 - [ ] 10. **Combined entries.** Tanzania, Congo (DRC), Zimbabwe, Somalia, Angola and Cameroon's Mbue pair two books in one flat field ("A / B"). Convert to `books:[]` once each has its own review text. (High-effort data-model task.)
 - [ ] 11. **Regions (editorial).** Cameroon and São Tomé are West Africa here, Central Africa per the UN. Sudan is in the Horn here, North Africa per the UN. Only Angola was moved.
-- [ ] 12. **Small things.** Hide "Reviews pending: 0" when zero. Jack's email sits in the page source as the form fallback (spam risk).
+- [x] 12a. 2026-10-19: "Reviews pending" stat removed from the hero entirely; pending countries now show a green "Read" badge.
+- [ ] 12b. **Small thing.** Jack's email sits in the page source as the form fallback (spam risk).
 
 ## Suggested thread grouping
 

@@ -24,7 +24,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#atlas">The Atlas</a></li>
     <li class="nav-hide-sm"><a href="https://fuuo.blogspot.com/p/after-looking-at-my-reading-lists-from.html" target="_blank" rel="noopener">Full list</a></li>
-    <li><button type="button" class="nav-feedback" onclick="baFeedbackOpen()">Suggest a book</button></li>
+    <li class="nav-hide-sm"><button type="button" class="nav-feedback" onclick="baFeedbackOpen()">Suggest a book</button></li>
   </ul>
 </nav>
 
@@ -45,7 +45,6 @@
   <p class="hero-sub">One novel and one poem from every country in Africa — telling the history of a continent through its fiction</p>
   <div class="hero-stats">
     <div class="hstat"><span class="hstat-num" id="stat-reviewed">—</span><span class="hstat-label">Countries read</span></div>
-    <div class="hstat"><span class="hstat-num" id="stat-pending">—</span><span class="hstat-label">Reviews pending</span></div>
     <div class="hstat"><span class="hstat-num" id="stat-remaining">—</span><span class="hstat-label">Still to read</span></div>
     <div class="hstat"><span class="hstat-num" id="stat-total">54</span><span class="hstat-label">Countries total</span></div>
   </div>
@@ -66,20 +65,23 @@
       <cite>— Yaa Gyasi, Homegoing (Ghana)</cite>
     </div>
   </div>
-  <div class="map-wrap">
-    <img
-      src="assets/map.jpg"
-      alt="Map of Africa with author names marked by country — the future book cover"
-      class="map-img" width="1600" height="1600" loading="lazy" decoding="async"
-      onerror="this.style.display='none';document.querySelector('.map-fallback').style.display='block'">
+</section>
+
+<section class="map-band" aria-label="The future book cover">
+  <figure class="map-figure">
+    <a href="assets/map.jpg" class="map-link" target="_blank" rel="noopener" aria-label="Open the map full size in a new tab">
+      <img
+        src="assets/map.jpg"
+        alt="Map of Africa with author names marked by country — the future book cover"
+        class="map-img" width="1600" height="1600" loading="lazy" decoding="async"
+        onerror="this.style.display='none';document.querySelector('.map-fallback').style.display='block'">
+    </a>
     <div class="map-fallback">
       <p>The map is taking a moment to load.</p>
     </div>
-    <p class="map-caption">The future book cover — Africa mapped by its novelists</p>
-  </div>
+    <figcaption class="map-caption">The future book cover — Africa mapped by its novelists<span class="map-hint">Click or tap the map to see it full size</span></figcaption>
+  </figure>
 </section>
-
-<hr class="section-divider">
 
 <section class="atlas-section" id="atlas">
   <div class="atlas-section-header">
