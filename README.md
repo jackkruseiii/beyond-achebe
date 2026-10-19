@@ -62,7 +62,7 @@ Each country is one object. There must be exactly **54**, each country once.
 | `country` | Display name; also what `?country=` deep links match exactly |
 | `region` | `maghreb` (shown as North Africa), `west`, `east`, `horn`, `central`, `southern` |
 | `reviewed` | `true` = read; counts toward "Countries read" |
-| `pendingReview` | `true` with `reviewed:true` = read, review not yet written (amber badge) |
+| `pendingReview` | `true` with `reviewed:true` = read, review not yet written (card shows a green **Read** badge) |
 | `book`, `author` | Single-book countries. `"Future read"` with empty author = nothing chosen yet |
 | `summary` | **Your review text, copied word for word from the blog.** Never paraphrased, never AI-written |
 | `quotes` | List of quotes from the book |
@@ -71,7 +71,7 @@ Each country is one object. There must be exactly **54**, each country once.
 | `tags` | Short themes; clicking one filters the atlas |
 | `poem` | `null`, or `{title, author, clip, link}`. In `clip`, `\n` is a line break |
 
-Card badges are computed: **Reviewed** (green), **Review pending** (amber), **Poem** (blue — not read yet but a poem is chosen), **Future** (grey). The hero stats and progress bar count themselves.
+Card badges are computed: **Reviewed** (green), **Read** (green, review not yet written), **Poem** (blue — not read yet but a poem is chosen), **Future** (grey). The hero stats and progress bar count themselves.
 
 ### Templates
 
