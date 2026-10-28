@@ -180,6 +180,16 @@ button,input,select,textarea{font-family:var(--serif)}
 .ccard-poem-author{font-size:var(--fs-sm);color:var(--ink-light);margin-bottom:5px}
 .ccard-poem-clip{font-size:var(--fs-sm);line-height:1.55;color:var(--ink-light);font-style:italic;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
+/* SHARE — copies a ?country= deep link */
+.ccard-foot{margin-top:auto;padding-top:10px;display:flex;justify-content:flex-end}
+.share-btn{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-xs);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;line-height:1;color:var(--ink-light);background:var(--sand);border:0.5px solid var(--border);border-radius:12px;padding:6px 10px;min-height:28px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent;transition:background 0.15s,color 0.15s,border-color 0.15s}
+.share-btn:hover{background:var(--sand-dark);color:var(--gold);border-color:rgba(184,124,46,0.45)}
+.share-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.share-btn.copied,.share-btn.copied:hover{background:var(--teal-pale);color:var(--teal);border-color:rgba(26,122,92,0.35)}
+.share-icon{flex-shrink:0;margin-top:-1px}
+.detail-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.share-btn-detail{font-size:var(--fs-xs);min-height:30px}
+
 /* LEGEND */
 .legend{display:flex;gap:18px;flex-wrap:wrap;padding:1rem 0;border-top:0.5px solid var(--border)}
 .legend-item{display:flex;align-items:center;gap:7px;font-size:var(--fs-sm);color:var(--ink-light)}
@@ -224,6 +234,8 @@ button,input,select,textarea{font-family:var(--serif)}
   .ccard{padding:0.85rem 0.9rem}
   .ccard-country{font-size:var(--fs-base)}
   .detail-panel{padding:1.25rem}
+  .detail-top{flex-wrap:wrap;gap:0.75rem}
+  .detail-actions{order:-1;width:100%}
   .about-section{padding:3rem 1.25rem}
   .atlas-section{padding:2.5rem 1.25rem 4rem}
 }

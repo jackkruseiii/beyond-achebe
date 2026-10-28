@@ -66,6 +66,59 @@
   }
   function setUrlCountry(name){ setUrlParam('country', name); }
 
+  /* ── share (copy a deep link) ──
+     Reuses the ?country= deep link that boot() already opens on load. */
+  var SHARE_ICON = '<svg class="share-icon" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false">' +
+    '<path d="M8 1.75v8.5M4.75 5 8 1.75 11.25 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M5 7.5H3.75v6.75h8.5V7.5H11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function shareButton(country, extraCls){
+    return '<button type="button" class="share-btn' + (extraCls ? ' ' + extraCls : '') + '" data-share="' + esc(country) + '"' +
+      ' aria-label="Copy link to ' + esc(country) + '">' + SHARE_ICON + '<span class="share-label">Share</span></button>';
+  }
+  function countryLink(name){
+    var base = /^https?:$/.test(location.protocol) ? location.origin + location.pathname : 'https://beyondachebe.com/';
+    return base + '?country=' + encodeURIComponent(name) + '#atlas';
+  }
+  function copyText(text){
+    function fallback(){
+      var ok = false, ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      try { ta.setSelectionRange(0, text.length); } catch (e) {}
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok ? Promise.resolve(true) : Promise.reject(new Error('copy failed'));
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext !== false){
+      return navigator.clipboard.writeText(text).then(function(){ return true; }, fallback);
+    }
+    return fallback();
+  }
+  var shareStatus = document.createElement('div');
+  shareStatus.className = 'visually-hidden';
+  shareStatus.setAttribute('aria-live', 'polite');
+  document.body.appendChild(shareStatus);
+  function shareCountry(btn){
+    var name = btn.dataset.share, link = countryLink(name);
+    var label = btn.querySelector('.share-label');
+    copyText(link).then(function(){
+      btn.classList.add('copied');
+      if (label) label.textContent = 'Link copied';
+      shareStatus.textContent = 'Link to ' + name + ' copied';
+      clearTimeout(btn._shareTimer);
+      btn._shareTimer = setTimeout(function(){
+        btn.classList.remove('copied');
+        if (label) label.textContent = 'Share';
+        shareStatus.textContent = '';
+      }, 2000);
+    }, function(){
+      window.prompt('Copy this link:', link);
+    });
+  }
+
   /* ── search ──
      Matches country, book titles, authors, poem titles, poet names and tags.
      Accent- and punctuation-insensitive: "ngugi" finds Ngũgĩ, "thiongo" finds Thiong'o,
@@ -208,7 +261,8 @@
         : '';
       return '<div class="ccard' + cls + '" role="button" tabindex="0" data-country="' + esc(b.country) + '" aria-label="' + esc(b.country) + ' — open details">' +
         '<div class="ccard-top"><span class="ccard-country">' + hl(b.country) + count + '</span>' + BADGES[st] + '</div>' +
-        bookLine + poem + '</div>';
+        bookLine + poem +
+        '<div class="ccard-foot">' + shareButton(b.country) + '</div></div>';
     }).join('');
   }
 
@@ -230,7 +284,8 @@
       '<div class="detail-eyebrow">' + esc(REGION_NAMES[b.region] || b.region) + ' · ' + esc(b.country) + '</div>' +
       '<h3 class="detail-title">' + esc(title) + '</h3>' +
       (!b.books && b.author ? '<div class="detail-author">' + esc(b.author) + '</div>' : '') +
-      '</div><button type="button" class="detail-close" data-action="close">✕ Close</button></div>';
+      '</div><div class="detail-actions">' + shareButton(b.country, 'share-btn-detail') +
+      '<button type="button" class="detail-close" data-action="close">✕ Close</button></div></div>';
 
     if (b.tags && b.tags.length){
       h += '<div class="detail-tags">' + b.tags.map(function(t){
@@ -311,6 +366,8 @@
 
   /* ── events (delegated, so re-rendering never loses handlers) ── */
   grid.addEventListener('click', function(e){
+    var share = e.target.closest('[data-share]');
+    if (share){ e.stopPropagation(); shareCountry(share); return; } // don't open the card
     if (e.target.closest('[data-action="widen-search"]')){
       currentTag = null;
       updateTagBar();
@@ -322,12 +379,15 @@
   });
   grid.addEventListener('keydown', function(e){
     if (e.key !== 'Enter' && e.key !== ' ') return;
+    if (e.target.closest('[data-share]')) return; // let the Share button handle its own keys
     var card = e.target.closest('.ccard');
     if (!card) return;
     e.preventDefault();
     showDetail(card.dataset.country);
   });
   panel.addEventListener('click', function(e){
+    var share = e.target.closest('[data-share]');
+    if (share){ shareCountry(share); return; }
     var t = e.target.closest('[data-tag],[data-action]');
     if (!t) return;
     if (t.dataset.action === 'close') closeDetail();
