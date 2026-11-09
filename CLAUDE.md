@@ -4,7 +4,7 @@ Static site for beyondachebe.com, served by GitHub Pages from `main`. Read `READ
 
 ## Session start (every new thread)
 
-1. Read this file only. Don't re-read `README.md`, `index.html`, or the CSS/JS unless the task touches them. Read the last 5 lines of `docs/log.md` if you need recent context.
+1. Read this file and `docs/finish-plan.md` (the reading plan, dates and status). Don't re-read `README.md`, `index.html`, or the CSS/JS unless the task touches them. Read the last 5 lines of `docs/log.md` if you need recent context.
 2. Classify the task and say in ONE line: "This looks like a [type] task. I recommend [model] at [effort] level. Confirm or switch?" Skip if Jack already named a model and effort. If he is on a heavier model than the task needs, say so. Don't start until he confirms, unless the task is trivial and the current setup obviously fits.
 
 | Task | Model | Effort |
