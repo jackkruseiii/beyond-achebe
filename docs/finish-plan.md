@@ -114,7 +114,7 @@ Pair the poem with the country's book thread when possible. Clips must be copied
 | Sierra Leone | Syl Cheney-Coker |
 | Cabo Verde | Corsino Fortes or Jorge Barbosa |
 | Benin | Paulin Joachim |
-| Gambia | Lenrie Peters (same author as the novel) |
+| Gambia | Lenrie Peters (Gambian poet; check the poem is about Gambia) |
 | Guinea | Keita Fodéba |
 | Guinea-Bissau | Hélder Proença |
 | Niger | Oumarou Watta |
