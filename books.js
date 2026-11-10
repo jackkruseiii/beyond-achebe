@@ -101,7 +101,7 @@ const books=[
   {country:"São Tomé and Príncipe",region:"west",reviewed:false,book:"The Shepherd's House",author:"Olinda Beja",tags:["Lusophone","island","colonialism"],summary:"",quotes:[],poem:{title:"Plantation",author:"Conceição Lima",clip:"The dead ask:\nWhy do roots sprout from our feet?\n…\nWhat was this kingdom\nthat we planted?",link:"https://talking-about-books.com/2025/04/05/no-gods-live-here-conceicao-lima/"},link:""},
 
   // East Africa
-  {country:"Seychelles",region:"east",reviewed:false,book:"Echoes from the Oasis",author:"Rosie Tirant-Longhurst",tags:["island","1912","women"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Seychelles",region:"east",reviewed:false,book:"Beyond the Horizon",author:"Robert Grandcourt",tags:["slavery", "abolition", "19th century", "island"],summary:"",quotes:[],poem:null,link:""},
   {country:"Mauritius",region:"east",reviewed:false,book:"The Last Brother",author:"Nathacha Appanah",tags:["island","Indian Ocean","World War II","Jewish refugees"],summary:"",quotes:[],poem:null,link:""},
 
   // Horn of Africa

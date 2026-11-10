@@ -82,7 +82,7 @@ Course module: ________
 | # | Country | Book | Author | Alternative | Format | Status |
 |---|---|---|---|---|---|---|
 | 0 | Egypt | The Cairo Trilogy | Naguib Mahfouz | — | read | Review to dictate |
-| 1 | Guinea-Bissau | The Ultimate Tragedy | Abdulai Sila | — | ? | Up next |
+| 1 | Guinea-Bissau | The Ultimate Tragedy | Abdulai Sila | — | P (owned) | Up next |
 | 2 | Central African Republic | Co-Wives, Co-Widows | Adrienne Yabouza | — | ? | |
 | 3 | Gabon | Awu's Story | Justine Mintsa | The Fury and Cries of Women (Rawiri) | ? | |
 | 4 | Lesotho | Chaka | Thomas Mofolo | — | ? | |
@@ -92,12 +92,12 @@ Course module: ________
 | 8 | Guinea | The Dark Child | Camara Laye | The Lives and Deaths of Véronique Bangoura (Monénembo) | ? | |
 | 9 | Angola | Transparent City | Ondjaki | A General Theory of Oblivion (Agualusa) | ? | |
 | 10 | Niger | The Epic of Askia Mohammed | Nouhou Malio, trans. Thomas A. Hale | Harmattan (Weston, set-in) | ? | |
-| 11 | Eswatini | Weeding the Flowerbeds | Sarah Mkhonza | When the Ground Is Hard (Malla Nunn) | ? | |
+| 11 | Eswatini | Weeding the Flowerbeds | Sarah Mkhonza | When the Ground Is Hard (Malla Nunn) | P (owned) | |
 | 12 | Gambia | The Second Round | Lenrie Peters | Chaff on the Wind (Ebou Dibba) | ? | |
 | 13 | São Tomé and Príncipe | The Shepherd's House | Olinda Beja | Equator (Tavares) | ? | |
 | 14 | Benin | Doguicimi | Paul Hazoumé | The Viceroy of Ouidah (Chatwin) if not found in 3 weeks | ? | |
 | 15 | South Sudan | Edo's Souls | Stella Gaitano | — | ? | |
-| 16 | Seychelles | Echoes from the Oasis | Rosie Tirant-Longhurst | Beyond the Horizon (Grancourt) | ? | |
+| 16 | Seychelles | Beyond the Horizon | Robert Grandcourt | Echoes from the Oasis (Tirant-Longhurst) | K (owned) | |
 
 Format: K = Kindle, P = print (ordered / in hand). Status: Up next · Reading · Review due · Posted · Done.
 
@@ -157,4 +157,5 @@ Also open: Rwanda has Jack's own "That Spring in 1994"; a Rwandan poet is wanted
 
 ## Progress log (Claude appends one line per finished country)
 
+- 2026-11-09 | Seychelles switched to Beyond the Horizon (Grandcourt), bought on Kindle; Ultimate Tragedy and Weeding the Flowerbeds already owned; 13 others in Amazon cart, not yet bought
 - 2026-11-09 | Plan built; picks locked; 4 poems added (Angola, Egypt, Côte d'Ivoire, Rwanda); Tati Loutard moved to Congo (Rep.) | PR #6, fa0963d | 37/54 read, 21/54 poems
