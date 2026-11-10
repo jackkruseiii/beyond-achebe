@@ -13,3 +13,4 @@ Format: `YYYY-MM-DD | scope | what changed | commit`
 2026-11-09 | books | Locked picks for 16 remaining countries (Mauritius, Guinea, Benin, São Tomé, South Sudan swapped; 8 Future reads filled; Angola → Transparent City). Poems: Tati Loutard moved DRC → Congo (Rep.); added Angola (Rocha), Egypt (Mutran), Côte d'Ivoire (Bognini), Rwanda (Jack's 'That Spring in 1994'). Closed open decisions 2, 8, 9 | PR finish-plan-picks
 2026-11-09 | docs | Added docs/finish-plan.md (DRIVE finish plan: dates, picks, review workflow, status, poem leads, course skeleton); CLAUDE.md session start now reads it | PR finish-plan-doc
 2026-11-09 | books | Seychelles → Beyond the Horizon (Robert Grandcourt); finish-plan status updated with owned titles
+2026-11-09 | books | Pick audit: Gambia → Chaff on the Wind (Ebou Dibba); São Tomé → Equator; finish-plan notes and setting rule

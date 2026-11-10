@@ -94,11 +94,11 @@ const books=[
   // West Africa
   {country:"Angola",region:"central",reviewed:false,book:"Transparent City",author:"Ondjaki",tags:["Lusophone","civil war","Luanda"],summary:"",quotes:[],poem:{title:"Poem of Return",author:"Jofre Rocha",clip:"When I return from the land of exile and silence\ndo not bring me flowers.",link:"https://fuuo.blogspot.com/2011/02/poet-of-week-jofre-rocha-from-angola.html"},link:""},
   {country:"Benin",region:"west",reviewed:false,book:"Doguicimi",author:"Paul Hazoumé",tags:["Dahomey","slave trade","historical novel"],summary:"",quotes:[],poem:null,link:""},
-  {country:"Gambia",region:"west",reviewed:false,book:"The Second Round",author:"Lenrie Peters",tags:["return home","Freetown","independence era"],summary:"",quotes:[],poem:null,link:""},
+  {country:"Gambia",region:"west",reviewed:false,book:"Chaff on the Wind",author:"Ebou Dibba",tags:["Bathurst", "1930s", "colonialism", "rural to city"],summary:"",quotes:[],poem:null,link:""},
   {country:"Guinea",region:"west",reviewed:false,book:"The Dark Child",author:"Camara Laye",tags:["childhood","colonial Guinea","tradition"],summary:"",quotes:[],poem:null,link:""},
   {country:"Guinea-Bissau",region:"west",reviewed:false,book:"The Ultimate Tragedy",author:"Abdulai Sila",tags:["colonialism","Portuguese Africa"],summary:"",quotes:[],poem:null,link:""},
   {country:"Niger",region:"west",reviewed:false,book:"The Epic of Askia Mohammed",author:"Nouhou Malio (trans. Thomas A. Hale)",tags:["Songhay Empire","griot","oral epic"],summary:"",quotes:[],poem:null,link:""},
-  {country:"São Tomé and Príncipe",region:"west",reviewed:false,book:"The Shepherd's House",author:"Olinda Beja",tags:["Lusophone","island","colonialism"],summary:"",quotes:[],poem:{title:"Plantation",author:"Conceição Lima",clip:"The dead ask:\nWhy do roots sprout from our feet?\n…\nWhat was this kingdom\nthat we planted?",link:"https://talking-about-books.com/2025/04/05/no-gods-live-here-conceicao-lima/"},link:""},
+  {country:"São Tomé and Príncipe",region:"west",reviewed:false,book:"Equator",author:"Miguel Sousa Tavares",tags:["Lusophone", "island", "colonialism", "cocoa plantations", "forced labour"],summary:"",quotes:[],poem:{title:"Plantation",author:"Conceição Lima",clip:"The dead ask:\nWhy do roots sprout from our feet?\n…\nWhat was this kingdom\nthat we planted?",link:"https://talking-about-books.com/2025/04/05/no-gods-live-here-conceicao-lima/"},link:""},
 
   // East Africa
   {country:"Seychelles",region:"east",reviewed:false,book:"Beyond the Horizon",author:"Robert Grandcourt",tags:["slavery", "abolition", "19th century", "island"],summary:"",quotes:[],poem:null,link:""},

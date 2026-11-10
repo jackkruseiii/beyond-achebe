@@ -26,7 +26,7 @@ Late December (holidays, travel) is a planned buffer: Kindle-only reading at the
 ## Locked decisions (9 Nov 2026)
 
 1. **Finish date:** 31 May 2027 at 4 hrs/week.
-2. **Authorship rule:** an author from the country first; if nothing by a national author exists in English, the best book set there, noted on the site. Already-read non-national picks stay.
+2. **Authorship rule:** an author from the country first, and the book must be set there (check the setting, not just the author); if nothing by a national author exists in English, the best book set there, noted on the site. Already-read non-national picks stay.
 3. **Review workflow:** dictate the review within 72 hours of finishing (template below). The next session after finishing a book is the review dictation, not new reading.
 4. **Picks** for the remaining countries — see Status table. Swaps made: Mauritius (was Magnus Mills), Guinea (was Kadiatou Diallo memoir), Benin (Chatwin now fallback), São Tomé (was Tavares, *Equator*), South Sudan (was the *There Is a Country* anthology), Angola (dropped *Luuanda*).
 
@@ -85,7 +85,7 @@ Course module: ________
 | 1 | Guinea-Bissau | The Ultimate Tragedy | Abdulai Sila | — | P (owned) | Up next |
 | 2 | Central African Republic | Co-Wives, Co-Widows | Adrienne Yabouza | — | ? | |
 | 3 | Gabon | Awu's Story | Justine Mintsa | The Fury and Cries of Women (Rawiri) | ? | |
-| 4 | Lesotho | Chaka | Thomas Mofolo | — | ? | |
+| 4 | Lesotho | Chaka | Thomas Mofolo | Pitseng (Mofolo, set in Lesotho) | P (in cart) | Note: set in Zululand; review should link the Shaka-era wars to Moshoeshoe founding Lesotho |
 | 5 | Chad | Told by Starlight in Chad | Joseph Brahim Seid | — | ? | |
 | 6 | Mauritius | The Last Brother | Nathacha Appanah | Eve Out of Her Ruins (Devi) | ? | |
 | 7 | Namibia | The Eternal Audience of One | Rémy Ngamije | The Purple Violet of Oshaantu (Andreas) | ? | |
@@ -93,8 +93,8 @@ Course module: ________
 | 9 | Angola | Transparent City | Ondjaki | A General Theory of Oblivion (Agualusa) | ? | |
 | 10 | Niger | The Epic of Askia Mohammed | Nouhou Malio, trans. Thomas A. Hale | Harmattan (Weston, set-in) | ? | |
 | 11 | Eswatini | Weeding the Flowerbeds | Sarah Mkhonza | When the Ground Is Hard (Malla Nunn) | P (owned) | |
-| 12 | Gambia | The Second Round | Lenrie Peters | Chaff on the Wind (Ebou Dibba) | ? | |
-| 13 | São Tomé and Príncipe | The Shepherd's House | Olinda Beja | Equator (Tavares) | ? | |
+| 12 | Gambia | Chaff on the Wind | Ebou Dibba | The Second Round (Lenrie Peters — set in Sierra Leone) | P (used copy needed) | |
+| 13 | São Tomé and Príncipe | Equator | Miguel Sousa Tavares (set-in rule) | — (The Shepherd's House is set in Portugal) | ? | |
 | 14 | Benin | Doguicimi | Paul Hazoumé | The Viceroy of Ouidah (Chatwin) if not found in 3 weeks | ? | |
 | 15 | South Sudan | Edo's Souls | Stella Gaitano | — | ? | |
 | 16 | Seychelles | Beyond the Horizon | Robert Grandcourt | Echoes from the Oasis (Tirant-Longhurst) | K (owned) | |
@@ -157,5 +157,6 @@ Also open: Rwanda has Jack's own "That Spring in 1994"; a Rwandan poet is wanted
 
 ## Progress log (Claude appends one line per finished country)
 
+- 2026-11-09 | Pick audit: Gambia → Chaff on the Wind (Second Round is set in Sierra Leone); São Tomé → back to Equator (Shepherd's House is set in Portugal); Chaka kept with note. Rule added: verify where a book is set, not just who wrote it
 - 2026-11-09 | Seychelles switched to Beyond the Horizon (Grandcourt), bought on Kindle; Ultimate Tragedy and Weeding the Flowerbeds already owned; 13 others in Amazon cart, not yet bought
 - 2026-11-09 | Plan built; picks locked; 4 poems added (Angola, Egypt, Côte d'Ivoire, Rwanda); Tati Loutard moved to Congo (Rep.) | PR #6, fa0963d | 37/54 read, 21/54 poems
