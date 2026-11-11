@@ -136,13 +136,22 @@ Also open: Rwanda has Jack's own "That Spring in 1994"; a Rwandan poet is wanted
 
 **Poem source:** *The Penguin Book of Modern African Poetry* (Moore & Beier) covers many of these.
 
+## Reach books (not part of the 54/54 count)
+
+- **Chad — *Il n'y a pas d'arc-en-ciel au paradis* (There Is No Rainbow in Paradise), Nétonon Noël Ndjékéry** (Hélice Hélas, Switzerland, 2022; ~360 pp; ISBN 978-2-940700-11-0; French only, no English translation found as of Nov 2026).
+  - About: about 200 years of Chadian history through the trans-Saharan slave trade, from caravans bound for the Arabian Peninsula through French colonization and the conscription of African soldiers to the rise of Boko Haram.
+  - Standing: Grand Prix littéraire d'Afrique noire 2022, Prix Hors Concours 2022, Prix Lettres frontière 2023. Reader reception mixed: 3.44/5 from 27 ratings on Goodreads.
+  - Why it matters: it is the Chadian book that best fits "history through fiction", and it adds the trans-Saharan/eastern trade to the course week on Africa's slave trades, alongside the Atlantic (Doguicimi, Homegoing, Equator) and the Indian Ocean (Beyond the Horizon).
+  - Plan (Nov 2026): Jack to try to buy a print copy in Paris (reserve ahead with the ISBN — Gibert Joseph, Fnac, or the Présence Africaine bookshop). Read in French with Claude's help on passages and context. Claude will not produce a full translation (copyright). Also email the author/publisher to ask whether an English translation is planned.
+  - Timing: after 31 May 2027. Seid's *Told by Starlight in Chad* still counts for Chad. Reading this is a Newport-phase project and the anchor for the slave-trades course week.
+
 ## Course skeleton (keep, don't build until Newport)
 
 "Beyond Achebe: Africa's History Through Its Fiction" — 14 weeks, each paired with that week's poems.
 
 1. The danger of a single story — *Arrow of God*
 2. Oral and precolonial worlds — *Epic of Askia Mohammed*, *Chaka*
-3. Slavery and the Atlantic — *Homegoing*, *Doguicimi* / *The Viceroy of Ouidah*, *The Shepherd's House*
+3. Africa's slave trades: Atlantic, Indian Ocean and trans-Saharan — *Homegoing*, *Doguicimi* / *The Viceroy of Ouidah*, *Beyond the Horizon* (Seychelles), *Equator* (São Tomé cocoa labour); reach anchor: Ndjékéry, *Il n'y a pas d'arc-en-ciel au paradis* (trans-Saharan trade, see Reach books)
 4. Conquest and colonial rule — *Houseboy*, *Confines of the Shadow*, *Bound to Violence*
 5. Liberation wars — *What the Day Owes the Night*, *The Ultimate Tragedy*, *Sleepwalking Land*
 6. Settler states and apartheid — *Long Walk to Freedom*, *Born a Crime*, *We Need New Names*
@@ -157,6 +166,7 @@ Also open: Rwanda has Jack's own "That Spring in 1994"; a Rwandan poet is wanted
 
 ## Progress log (Claude appends one line per finished country)
 
+- 2026-11-11 | Added reach book: Ndjékéry, Il n'y a pas d'arc-en-ciel au paradis (Chad, French); course week 3 broadened to Africa's three slave trades
 - 2026-11-09 | Pick audit: Gambia → Chaff on the Wind (Second Round is set in Sierra Leone); São Tomé → back to Equator (Shepherd's House is set in Portugal); Chaka kept with note. Rule added: verify where a book is set, not just who wrote it
 - 2026-11-09 | Seychelles switched to Beyond the Horizon (Grandcourt), bought on Kindle; Ultimate Tragedy and Weeding the Flowerbeds already owned; 13 others in Amazon cart, not yet bought
 - 2026-11-09 | Plan built; picks locked; 4 poems added (Angola, Egypt, Côte d'Ivoire, Rwanda); Tati Loutard moved to Congo (Rep.) | PR #6, fa0963d | 37/54 read, 21/54 poems
